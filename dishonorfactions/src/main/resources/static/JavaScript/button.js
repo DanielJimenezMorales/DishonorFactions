@@ -15,7 +15,7 @@ export class Button {
             .on('pointerover', () => this.backgroundShadow.setVisible(true))
             .on('pointerout', () => this.backgroundShadow.setVisible(false));
 
-        this.button = scene.add.text(x, y, label, {})
+        this.button = scene.add.text(x, y, label, {fill: '0x000000', strokeThickness: 3})
             .setOrigin(0.5)
             .setPadding(paddingSize)
             .setStyle({ fontSize: textSize});

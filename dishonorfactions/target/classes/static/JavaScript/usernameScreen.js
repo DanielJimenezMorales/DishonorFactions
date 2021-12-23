@@ -5,6 +5,7 @@ export class UsernameScene extends Phaser.Scene
 	constructor()
 	{
 		super({ key: 'username' });
+		this.loginBackground;
 		this.usernameValue;
 		this.passwordValue;
 		this.infoText;
@@ -21,12 +22,14 @@ export class UsernameScene extends Phaser.Scene
 
 	create()
 	{
+		this.loginBackground = this.add.image(0, 0, 'loginBackground').setOrigin(0);
 		//Create a few variables like texts and buttons
 		this.nameInput = this.add.dom(640, 360).createFromCache('usernameInputField');
 		this.usernameValue = this.nameInput.getChildByName("name");
 	    this.passwordValue = this.nameInput.getChildByName("password");
 
-	    this.confirmButton = new Button(this.cameras.main.width / 2, this.cameras.main.height / 2 + 180, 'Register', 'botonSalir', 0.5, 1, 40, 15, this, () => {
+	    this.confirmButton = new Button(this.cameras.main.width / 2, this.cameras.main.height / 2 + 180,
+	    	'Register', 'botonSalir', 0.8, 0.7, 40, 15, this, () => {
 	        if(this.usernameValue.value != "" && this.passwordValue.value != "")
 	        {
 	        	var username = 
@@ -51,12 +54,12 @@ export class UsernameScene extends Phaser.Scene
 	        }
 	    });
 
-	    this.errorText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 + 250, "", {fontSize: 20, strokeThickness: 1.5}).setOrigin(0.5, 0.5);
+	    this.errorText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 + 250, "", {fontSize: 20, strokeThickness: 1.5, fill: '0x000000'}).setOrigin(0.5, 0.5);
 		this.hideErrorMessage();
 
-		this.infoText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 - 160, "", {fontSize: 100, strokeThickness: 1.5}).setOrigin(0.5, 0.5);
+		this.infoText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 - 160, "", {fontSize: 100, strokeThickness: 3, fill: '0x000000'}).setOrigin(0.5, 0.5);
 
-		this.changeEnterModeButton = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 + 100, "", {fontSize: 20, strokeThickness: 1.5}).setOrigin(0.5, 0.5);
+		this.changeEnterModeButton = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 + 100, "", {fontSize: 20, strokeThickness: 1.5, fill: '0x000000'}).setOrigin(0.5, 0.5);
 		this.changeToLogin();
 
 		this.changeEnterModeButton.setInteractive();
@@ -73,7 +76,7 @@ export class UsernameScene extends Phaser.Scene
 			});
 
 		this.changeEnterModeButton.on('pointerover', () => this.changeEnterModeButton.setColor("#FC814A"));
-        this.changeEnterModeButton.on('pointerout', () => this.changeEnterModeButton.setColor("#BFBFBF"));
+        this.changeEnterModeButton.on('pointerout', () => this.changeEnterModeButton.setColor("0x000000"));
     }
 
 	changeToMenu()
