@@ -10,9 +10,8 @@ export class Pause extends Phaser.Scene{
 		this.goBackButton.setInteractive();
 		this.goBackButton.on('pointerup', () => this.switchBackToMenuScene(this));
     }
-    switchBackToMenuScene()
+    switchBackToMenuScene(currentScene)
 	{
-		this.scene.resume('game');
-		this.scene.stop();
+		currentScene.scene.wake('game');
 	}
 }
