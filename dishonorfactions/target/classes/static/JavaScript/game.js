@@ -238,15 +238,9 @@ export class Game extends Phaser.Scene
 
 	pauseGame()
 	{
+		this.scene.launch('pause');
 		this.scene.pause();
-		this.switchToPauseScene(this);
 	}
-
-	switchToPauseScene(currentScene)
-	{
-		currentScene.scene.start('pause');
-	}
-
 	create()
 	{
 		this.gameHasAlreadyFinished = false;
