@@ -29,57 +29,22 @@ export class Menu extends Phaser.Scene
 	{		
 		//añadir imagenes a la escena
 		this.add.image(0, 0, 'menu').setOrigin(0, 0);
-		this.playButtonShadow = this.add.image(650, 310, 'botonJugar');
-		this.playButtonShadow.tint = 0x000000;
-		this.playButtonShadow.alpha = 0.5;
-		this.playButtonShadow.visible = false;
 
-		this.creditsButtonShadow = this.add.image(650, 410, 'botonCreditos');
-		this.creditsButtonShadow.tint = 0x000000;
-		this.creditsButtonShadow.alpha = 0.5;
-		this.creditsButtonShadow.visible = false;
+		this.playButton = new Button(this.cameras.main.width / 2, this.cameras.main.height / 2 - 110,
+	    	'Play', 'button', 0.8, 1, 60, 15, this, () => {this.switchToSelectionScene(this);});
 
-		this.controlsButtonShadow = this.add.image(650, 510, 'botonControles');
-		this.controlsButtonShadow.tint = 0x000000;
-		this.controlsButtonShadow.alpha = 0.5;
-		this.controlsButtonShadow.visible = false;
+		this.creditsButton = new Button(this.cameras.main.width / 2, this.cameras.main.height / 2,
+			'Credits', 'button', 0.8, 1, 60, 15, this, () => {this.switchToCreditsScene(this);});
 
-		this.exitButtonShadow = this.add.image(650, 610, 'botonSalir');
-		this.exitButtonShadow.tint = 0x000000;
-		this.exitButtonShadow.alpha = 0.5;
-		this.exitButtonShadow.visible = false;
+		this.controlsButton = new Button(this.cameras.main.width / 2, this.cameras.main.height / 2 + 110,
+			'Controls', 'button', 0.8, 1, 60, 15, this, () => {this.switchToControlsScene(this);});
 
-		this.playButton = this.add.image(640, 300, 'botonJugar');
-		this.creditsButton = this.add.image(640, 400, 'botonCreditos');
-		this.controlsButton = this.add.image(640, 500, 'botonControles');
-		this.exitButton = this.add.image(640, 600, 'botonSalir');
-
-		//hacer las imagenes de los botones interactivas
-		this.playButton.setInteractive();
-		this.creditsButton.setInteractive();
-		this.controlsButton.setInteractive();
-		this.exitButton.setInteractive();
-
-		//funciones de cada botón
-		this.playButton.on('pointerup', () => this.switchToSelectionScene(this));
-		this.playButton.on('pointerover', () => this.enableButtonShadow(this.playButtonShadow));
-        this.playButton.on('pointerout', () => this.disableButtonShadow(this.playButtonShadow));
-
-		this.creditsButton.on('pointerup', () => this.switchToCreditsScene(this));
-		this.creditsButton.on('pointerover', () => this.enableButtonShadow(this.creditsButtonShadow));
-        this.creditsButton.on('pointerout', () => this.disableButtonShadow(this.creditsButtonShadow));
-
-		this.controlsButton.on('pointerup', () => this.switchToControlsScene(this));
-		this.controlsButton.on('pointerover', () => this.enableButtonShadow(this.controlsButtonShadow));
-        this.controlsButton.on('pointerout', () => this.disableButtonShadow(this.controlsButtonShadow));
-
-		this.exitButton.on('pointerup', () => 
+		this.exitButton = new Button(this.cameras.main.width / 2, this.cameras.main.height / 2 + 220,
+			'Exit', 'button', 0.8, 1, 60, 15, this, () =>
 			{
 				this.sendDisconnectUserPetition();
 				this.switchToLoginScreen();
 			});
-		this.exitButton.on('pointerover', () => this.enableButtonShadow(this.exitButtonShadow));
-        this.exitButton.on('pointerout', () => this.disableButtonShadow(this.exitButtonShadow));
 
 
 		this.backgroundMusic = this.sound.add('menuBackgroundMusic');
@@ -107,16 +72,6 @@ export class Menu extends Phaser.Scene
 	switchToLoginScreen()
 	{
 		this.scene.start('username');
-	}
-
-	enableButtonShadow(buttonShadow)
-	{
-		buttonShadow.visible = true;
-	}
-
-	disableButtonShadow(buttonShadow)
-	{
-		buttonShadow.visible = false;
 	}
 
 	sendDisconnectUserPetition()

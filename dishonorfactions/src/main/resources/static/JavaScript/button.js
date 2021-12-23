@@ -17,7 +17,7 @@ export class Button {
 
         this.button = scene.add.text(x, y, label, {fill: '0x000000', strokeThickness: 3})
             .setOrigin(0.5)
-            .setPadding(paddingSize)
+            //.setPadding(paddingSize)
             .setStyle({ fontSize: textSize});
             //.setStyle({ backgroundColor: '#9BC1BC', fill: '#100007', fontSize: textSize })
             //.setInteractive({ useHandCursor: true })
