@@ -44,6 +44,11 @@
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
     </dependency>
+    <!-- Dependencia necesaria para usar webSockets -->
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-websocket</artifactId>
+    </dependency>
   </dependencies>
   
   <build>
