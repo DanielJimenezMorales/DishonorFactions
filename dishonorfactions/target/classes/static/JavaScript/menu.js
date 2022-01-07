@@ -24,8 +24,6 @@ export class Menu extends Phaser.Scene
 	init(data)
 	{
 		this.dataBetweenScenes = data;
-
-	    console.log(this.dataBetweenScenes.gameMode);
 	}
 
 	create()

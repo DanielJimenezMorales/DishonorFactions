@@ -16,6 +16,7 @@ export class Seleccion extends Phaser.Scene
 		this.gameWebSocket;
 		this.isPlayerReady = false;
 		this.isOpponentReady = false;
+		this.waitingForOpponentText;
 	}
 
 	//////////////////////////////////////////////////////////////////
@@ -25,7 +26,6 @@ export class Seleccion extends Phaser.Scene
 	init(data)
 	{
 		this.dataBetweenScenes = data;
-		console.log(this.dataBetweenScenes.gameMode);
 	}
 
 	create()
@@ -54,6 +54,8 @@ export class Seleccion extends Phaser.Scene
 		this.backgroundMusic = this.sound.add('selectionBackgroundMusic');
 		this.backgroundMusic.play();
 		this.add.image(0, 0, 'pantalla').setOrigin(0, 0);
+		this.waitingForOpponentText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height - 100, "Waiting for the opponent...", {fontSize: 50, strokeThickness: 1.5}).setOrigin(0.5, 0.5);
+		this.waitingForOpponentText.setVisible(false);
 
 		this.elfButtonShadow = this.add.image(260, 640, 'boton');
 		this.elfButtonShadow.tint = 0x000000;
@@ -117,7 +119,6 @@ export class Seleccion extends Phaser.Scene
 		}
 		else if(this.dataBetweenScenes.gameMode == "Online")
 		{
-			console.log("aquiii");
 			//Comprobar si ya el jugador ha elegido counter = 1
 			if(this.clicksCounter == 1)
 			{
@@ -144,8 +145,19 @@ export class Seleccion extends Phaser.Scene
 
 		if(this.isPlayerReady && !this.isOpponentReady)
 		{
-			console.log("Esperando al oponente");
+			this.waitingForOpponentText.setVisible(true);
+			this.disableButtons();
 		}			
+	}
+
+	disableButtons()
+	{
+		this.elfButton.visible = false;
+		this.orcButton.visible = false;
+		this.humanButton.visible = false;
+		this.disableButtonShadow(this.humanButtonShadow);
+		this.disableButtonShadow(this.orcButtonShadow);
+		this.disableButtonShadow(this.elfButtonShadow);
 	}
 
 	enableButtonShadow(buttonShadow)
