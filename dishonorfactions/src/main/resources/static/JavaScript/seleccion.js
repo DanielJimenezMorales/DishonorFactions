@@ -28,15 +28,16 @@ export class Seleccion extends Phaser.Scene
 		this.dataBetweenScenes = data;
 	}
 
-	create()
+	configureSocket()
 	{
 		this.gameWebSocket = this.registry.get("webSocket");
+
 		this.gameWebSocket.onmessage = (msg)=>
 		{
 			if(msg.data == "elfChampionData" || msg.data == "orcChampionData" || msg.data == "humanChampionData")
 			{
 				console.log(msg);
-				this.preGameConfiguration.rightPlayer = msg;
+				this.preGameConfiguration.rightPlayer = msg.data;
 				this.isOpponentReady = true;
 			}
 		}
@@ -49,6 +50,14 @@ export class Seleccion extends Phaser.Scene
 		this.gameWebSocket.onclose = ()=>
 		{
 			console.log("Te has desconectado");
+		}
+	}
+
+	create()
+	{
+		if(this.dataBetweenScenes.gameMode == "Online")
+		{
+			this.configureSocket();
 		}
 
 		this.backgroundMusic = this.sound.add('selectionBackgroundMusic');
