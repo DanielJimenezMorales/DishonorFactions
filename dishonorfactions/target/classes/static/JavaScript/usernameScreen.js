@@ -12,7 +12,11 @@ export class UsernameScene extends Phaser.Scene
 		this.errorText;
 		this.changeEnterModeButton;
 		this.enterMode;
-		this.dataForMenuScene;
+		this.dataForMenuScene = 
+    	{
+    		"username": "",
+    		"gameMode": ''
+    	};
 		this.confirmButton;
 	}
 
@@ -38,10 +42,9 @@ export class UsernameScene extends Phaser.Scene
 	        		"password": this.passwordValue.value
 	        	}
 
-	        	this.dataForMenuScene = 
-	        	{
-	        		"username": this.usernameValue.value
-	        	}
+	        	this.dataForMenuScene.username = this.usernameValue.value;
+	        	this.dataForMenuScene.gameMode = "Online";
+	        	console.log(this.dataForMenuScene.gameMode);
 
 	        	if(this.enterMode == 'Register')
 	        	{
@@ -77,6 +80,13 @@ export class UsernameScene extends Phaser.Scene
 
 		this.changeEnterModeButton.on('pointerover', () => this.changeEnterModeButton.setColor("#FC814A"));
         this.changeEnterModeButton.on('pointerout', () => this.changeEnterModeButton.setColor("0x000000"));
+    }
+
+    playOffline()
+    {
+    	this.dataForMenuScene.username = "Invitado";
+    	this.dataForMenuScene.gameMode = "Offline";
+    	this.changeToMenu();
     }
 
 	changeToMenu()

@@ -12,7 +12,10 @@ export class Seleccion extends Phaser.Scene
 		this.humanButtonShadow;
 		this.elfButton;
 		this.elfButtonShadow;
-		this.username;
+		this.dataBetweenScenes;
+		this.gameWebSocket;
+		this.isPlayerReady = false;
+		this.isOpponentReady = false;
 	}
 
 	//////////////////////////////////////////////////////////////////
@@ -21,11 +24,33 @@ export class Seleccion extends Phaser.Scene
 
 	init(data)
 	{
-		this.username = data;
+		this.dataBetweenScenes = data;
+		console.log(this.dataBetweenScenes.gameMode);
 	}
 
 	create()
 	{
+		this.gameWebSocket = this.registry.get("webSocket");
+		this.gameWebSocket.onmessage = (msg)=>
+		{
+			if(msg.data == "elfChampionData" || msg.data == "orcChampionData" || msg.data == "humanChampionData")
+			{
+				console.log(msg);
+				this.preGameConfiguration.rightPlayer = msg;
+				this.isOpponentReady = true;
+			}
+		}
+
+		this.gameWebSocket.onerror = (e)=>
+		{
+			console.log("Ha dado un error");
+		}
+
+		this.gameWebSocket.onclose = ()=>
+		{
+			console.log("Te has desconectado");
+		}
+
 		this.backgroundMusic = this.sound.add('selectionBackgroundMusic');
 		this.backgroundMusic.play();
 		this.add.image(0, 0, 'pantalla').setOrigin(0, 0);
@@ -50,7 +75,7 @@ export class Seleccion extends Phaser.Scene
 		this.humanButton = this.add.image(1050,630,'boton3');
 
 		this.preGameConfiguration = this.cache.json.get('gameConfiguration');
-		this.preGameConfiguration.username = this.username.username;
+		this.preGameConfiguration.username = this.dataBetweenScenes.username;
 
 		this.elfButton.setInteractive();
 		this.elfButton.on('pointerup', () => this.clickConfiguration('elfChampionData'));
@@ -71,22 +96,56 @@ export class Seleccion extends Phaser.Scene
 		//Incrementar contador
 		this.clicksCounter++;
 
-		//Guardar la seleccion en la variable
-		if(this.clicksCounter == 1)
+		if(this.dataBetweenScenes.gameMode == "Offline")
 		{
-			this.preGameConfiguration.leftPlayer = playerSelection;
+			//Guardar la seleccion en la variable
+			if(this.clicksCounter == 1)
+			{
+				this.preGameConfiguration.leftPlayer = playerSelection;
+			}
+			else if(this.clicksCounter == 2)
+			{
+				this.preGameConfiguration.rightPlayer = playerSelection;
+			}
+
+			//Comprobar si ya todos los jugadores han elegido counter = 2
+			if(this.clicksCounter == 2)
+			{
+				this.backgroundMusic.stop();
+				this.scene.start('game', this.preGameConfiguration);
+			}
 		}
-		else if(this.clicksCounter == 2)
+		else if(this.dataBetweenScenes.gameMode == "Online")
 		{
-			this.preGameConfiguration.rightPlayer = playerSelection;
+			console.log("aquiii");
+			//Comprobar si ya el jugador ha elegido counter = 1
+			if(this.clicksCounter == 1)
+			{
+				this.backgroundMusic.stop();
+				
+				this.gameWebSocket.send(playerSelection);
+				this.isPlayerReady = true;
+				this.preGameConfiguration.leftPlayer = playerSelection;
+			}
+		}
+		else
+		{
+			console.log("nada");
 		}
 
-		//Comprobar si ya todos los jugadores han elegido counter = 2
-		if(this.clicksCounter == 2)
+	}
+
+	update()
+	{
+		if(this.isPlayerReady && this.isOpponentReady)
 		{
-			this.backgroundMusic.stop();
 			this.scene.start('game', this.preGameConfiguration);
 		}
+
+		if(this.isPlayerReady && !this.isOpponentReady)
+		{
+			console.log("Esperando al oponente");
+		}			
 	}
 
 	enableButtonShadow(buttonShadow)

@@ -14,7 +14,7 @@ export class Menu extends Phaser.Scene
 		this.settingsButton;
 		this.controlsButton;
 		this.exitButton;
-		this.username
+		this.dataBetweenScenes;
 	}
 	
 	//////////////////////////////////////////////////////////////////
@@ -23,7 +23,7 @@ export class Menu extends Phaser.Scene
 
 	init(data)
 	{
-		this.username = data;
+		this.dataBetweenScenes = data;
 	}
 
 	create()
@@ -64,7 +64,7 @@ export class Menu extends Phaser.Scene
 	switchToSelectionScene(currentScene)
 	{
 		currentScene.backgroundMusic.stop();
-		currentScene.scene.start('seleccion', this.username);
+		currentScene.scene.start('seleccion', this.dataBetweenScenes);
 	}
 
 	switchToControlsScene(currentScene)
@@ -76,7 +76,7 @@ export class Menu extends Phaser.Scene
 	switchToSearchingLobbyScene(currentScene)
 	{
 		currentScene.backgroundMusic.stop();
-		currentScene.scene.start('searchingLobby');
+		currentScene.scene.start('searchingLobby', this.dataBetweenScenes);
 	}
 
 	switchToLoginScreen()
@@ -93,7 +93,7 @@ export class Menu extends Phaser.Scene
                 'Accept': 'application/json',
                 'Content-Type': 'application/json' 
             },
-            url: "/username/disconnect/" + this.username.username,
+            url: "/username/disconnect/" + this.dataBetweenScenes.username,
             dataType: "json"
         }).done((data)=>
         {
