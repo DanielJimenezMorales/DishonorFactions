@@ -4,7 +4,11 @@ export class Player
 {
 	constructor(gameScene, x, y, usingKeys, healthBarHorizontalDisp, healthBarVerticalDisp, data, side)
 	{
+
 		this.scene = gameScene;
+
+		this.gameWebSocket = this.scene.registry.get("webSocket");
+
 		this.playerSide = side;
 		this.playerData = this.scene.cache.json.get(data);
 		this.initialPositionX = x;
@@ -32,6 +36,7 @@ export class Player
 		this.shootingRateTimer = 0;
 		this.canShoot = true;
 		this.projectilesGroup;
+		this.isShooting = false;
 
 		this.isDead = false;
 		this.deadTimer;
@@ -42,6 +47,21 @@ export class Player
 	getPlayerGraphics()
 	{
 		return this.playerGraphics;
+	}
+
+	setPosition(x,  y) //for websocket
+	{ 
+		this.playerGraphics.x = x;
+		this.playerGraphics.y = y;
+	}
+
+	setFacingDirection(facing){
+		this.facingDirection = facing;
+	}
+
+	setHealth(health)
+	{
+		this.health = health;
 	}
 
 	getPlayerProjectileGroup()
@@ -166,6 +186,8 @@ export class Player
 	{
 		this.isHorizontallyMoving = false;
 		this.isVerticallyMoving = false;
+		this.isShooting = false;
+
 		if(this.isUsingKeys)
 		{
 			if(this.shootingKey.F.isDown)
@@ -307,6 +329,19 @@ export class Player
 	        	}
 	        }
 	    }
+
+	    if(this.playerSide == "left")
+	    {
+	    	var playerData = {"type" : "position",
+			"x" : this.playerGraphics.x,
+			"y" : this.playerGraphics.y, 
+			"isAttacking" : this.isShooting,
+			"facingDirection": this.facingDirection,
+			"health" : this.health};
+
+			this.gameWebSocket.send(JSON.stringify(playerData));	
+	    }
+		
 	}
 
 	updateHealthBarPosition()
@@ -338,6 +373,7 @@ export class Player
 		var projectile = this.scene.physics.add.sprite(this.playerGraphics.x, this.playerGraphics.y, this.playerData.projectileSpriteID);
 		this.projectilesGroup.add(projectile);
 		projectile.setVelocityX(velocityMultiplier * 900);
+		this.isShooting = true;
 	}
 
 	stopPlayerMovement()

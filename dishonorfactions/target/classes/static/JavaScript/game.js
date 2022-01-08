@@ -14,8 +14,8 @@ export class Game extends Phaser.Scene
 		this.queenElizabeth;
 		this.cursors;
 		this.enemySpawner;
-		this.playerLeft;
-		this.playerRight;
+		this.leftPlayer;
+		this.rightPlayer;
 		this.leftNPCGroup;
 		this.rightNPCGroup;
 		this.leftPlayerVictoryOrDefeatText;
@@ -42,6 +42,45 @@ export class Game extends Phaser.Scene
 	//////////////////////////////////////////////////////////////////
 	//AQUÍ NO HACER PRELOAD, HACERLO EN EL ARCHIVO PRELOADSCENE.JS!!!!
 	//////////////////////////////////////////////////////////////////
+
+
+	configureSocket()
+	{
+
+		this.gameWebSocket = this.registry.get("webSocket");
+
+		this.gameWebSocket.onmessage = (msg)=>
+		{	
+			var data = JSON.parse(msg.data);
+			console.log(data.type);
+			console.log(data.x);
+			console.log(data.y);
+
+			if(data.type == "position")
+			{
+
+				this.rightPlayer.setPosition(this.cameras.main.width - data.x, data.y);
+				this.rightPlayer.setFacingDirection(!data.facingDirection);
+				//this.rightPlayer.setHealth(data.health);
+				console.log("ha cambiado la pos");
+
+				if(data.isAttacking == true){
+					this.rightPlayer.shootProjectile();
+				}
+
+			}	
+		}
+
+		this.gameWebSocket.onerror = (e)=>
+		{
+			console.log("Ha dado un error");
+		}
+
+		this.gameWebSocket.onclose = ()=>
+		{
+			console.log("Te has desconectado");
+		}
+	}
 
 	initializeEnemySpawner()
 	{
@@ -249,6 +288,8 @@ export class Game extends Phaser.Scene
 
 	create()
 	{
+		this.configureSocket();
+
 		this.gameHasAlreadyFinished = false;
 
 		this.input.keyboard.on('keydown_E', this.pauseGame, this);
