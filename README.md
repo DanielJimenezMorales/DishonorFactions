@@ -1,28 +1,33 @@
 # DishonorFactions : Game Design Document
 ## ÍNDICE:
-- Introducción.
-- Características del videojuego.
-    - Género.
-    - Público objetivo.
-    - Características principales.
-    - Flujo del juego.
-    - Controles.
-    - Controladores soportados.
-    - Interfaz.
-  
-    - Personajes.
-        - Elfos.
-        - Orcos.
-        - Humanos.
-    - Escenarios.
-    - Historia
-    - Audio.
-        - Música.
-        - Efectos de sonido.
-    - Funcionamiento de la red en el juego.
-        - Funcionamiento del servidor
-        - Clases y métodos implementados
-- Juegos similares.
+
+<br>
+
+* [INTRODUCCIÓN](#Introducción)
+* [CARACTERÍSTICAS DEL VIDEOJUEGO](#Características del videojuego)
+  * [GÉNERO](#Género)
+  * [PÚBLICO OBJETIVO](#Público objetivo)
+  * [CARACTERÍSTICAS PRINCIPALES](#Características principales)
+  * [FLUJO DEL JUEGO](# Flujo del juego)
+  * [CONTROLES](#Controles)
+  * [CONTROLADORES SOPORTADOS](#Controladores soportados)
+  * [INTERFAZ](#Interfaz)
+  * [ARTE](#Arte)
+  * [PERSONAJES](#Personajes)
+    * [Orcos](#Orcos)
+    * [Elfos](#Elfos)
+    * [Humanos](#Humanos)
+  * [ESCENARIOS](#Escenarios)
+  * [HISTORIA](#Historia)
+  * [AUDIO](#Audio)
+    * [Música](#Música)
+    * [Efectos de sonido](#Efectos de sonido)
+  * [FUNCIONAMIENTO DE LA RED EN EL JUEGO](#Funcionamiento de la red en el juego)
+    * [Funcionamiento del servidor del juego](#Funcionamiento del servidor)
+    * [](#Clases y métodos implementados)
+* [JUEGOS SIMILARES](#Juegos similares)
+
+<br>
 
 Proyecto colaborativo de la asignatura de Juegos en Red
 ## INTRODUCCIÓN:
@@ -192,7 +197,7 @@ El juego tendrá distintos audios, en primer lugar habrá un audio para la inter
 
 En primer lugar, los jugadores deberán logearse y podrán buscar una partida en linea
 
-** Funcionamiento del servidor del juego**
+
 
 
 
