@@ -14,17 +14,17 @@
   * [INTERFAZ](#Interfaz)
   * [ARTE](#Arte)
   * [PERSONAJES](#Personajes)
-    * [Orcos](#Orcos)
-    * [Elfos](#Elfos)
-    * [Humanos](#Humanos)
+    * Orcos
+    * Elfos
+    * Humanos
   * [ESCENARIOS](#Escenarios)
   * [HISTORIA](#Historia)
   * [AUDIO](#Audio)
-    * [Música](#Música)
-    * [Efectos de sonido](#Efectos-de-sonido)
+    * Música
+    * Efectos de sonido
   * [FUNCIONAMIENTO DE LA RED EN EL JUEGO](#Funcionamiento-de-la-red-en-el-juego)
-    * [Funcionamiento del servidor del juego](#Funcionamiento-del-servidor)
-    * [](#Clases-y-métodos-implementados)
+    * Funcionamiento del servidor
+    * Clases-y-métodos-implementados
 * [JUEGOS SIMILARES](#Juegos-similares)
 
 <br>
