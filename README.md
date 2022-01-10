@@ -8,7 +8,7 @@
   * [GÉNERO](#Género)
   * [PÚBLICO_OBJETIVO](#Público objetivo)
   * [CARACTERÍSTICAS-PRINCIPALES](#Características principales)
-  * [FLUJO-DEL-JUEGO](# Flujo del juego)
+  * [FLUJO-DEL-JUEGO](#Flujo del juego)
   * [CONTROLES](#Controles)
   * [CONTROLADORES-SOPORTADOS](#Controladores soportados)
   * [INTERFAZ](#Interfaz)
@@ -23,7 +23,7 @@
     * #Música
     * #Efectos de sonido
   * [FUNCIONAMIENTO_DE_LA_RED_EN_EL_JUEGO](#Funcionamiento de la red en el juego)
-    * [Funcionamiento del servidor del juego](#Funcionamiento del servidor)
+    * Funcionamiento del servidor
     * [](#Clases y métodos implementados)
 * [JUEGOS SIMILARES](#Juegos similares)
 
