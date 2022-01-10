@@ -178,7 +178,9 @@ Este argumento se centra en el personaje de Issabell II, difunta reina del reino
 El juego tendrá distintos audios, en primer lugar habrá un audio para la interfaz del juego, antes de comenzarlo, otro mientras se está jugando y por último, un audio que se reproducirá en caso de que el jugador pierda la partida. Además, cabe añadir que ciertas acciones que se produzcan durante el juego tendrán su propio audio.
 1. __Música__:
     - Música de menú principal
-    <audio src="./dishonorfactions/src/main/resources/static/Sounds/MainMenu.wav"></audio>
+<br>
+https://github.com/DanielJimenezMorales/DishonorFactions/blob/main/dishonorfactions/src/main/resources/static/Sounds/MainMenu.wav
+<br>
     - Música de fondo inGame
 
 3. __Efectos de sonido__:
