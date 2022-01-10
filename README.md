@@ -140,11 +140,11 @@ A continuación, se detallarán las características principales de cada una de 
         - _Kalapax_:
             - Ataques:
                 1. Ataque a distancia lanzando el hacha.
-<img src="./dishonorfactions/src/main/resources/static/Art/orcProjectile.png" alt="Orco" width="100" align="center"/>
+                <img src="./dishonorfactions/src/main/resources/static/Art/orcProjectile.png" alt="Orco" width="100" align="center"/>
 
     - Tropas:
         - Minion orco.
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/0_Orc_Running_003.png" alt="Orco" width="400" align="center"/>
+        <img src="./dishonorfactions/src/main/resources/static/readMeMedia/0_Orc_Running_003.png" alt="Orco" width="400" align="center"/>
 
 3. __Elfos:__
     - Descripción: Las unidades élficas son las más rápidas y ágiles. Pero tanto su vida como su fuerza se ven reducidas.
@@ -152,11 +152,11 @@ A continuación, se detallarán las características principales de cada una de 
         - _Noveny_:
             - Ataques:
                 1. Ataque a distancia usando su poderoso arco.
-<img src="./dishonorfactions/src/main/resources/static/Art/elfProjectile.png" alt="Orco" width="100" align="center"/>
+                <img src="./dishonorfactions/src/main/resources/static/Art/elfProjectile.png" alt="Orco" width="100" align="center"/>
 
     - Tropas:
         - Minion elfo.
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/0_Golem_Running_003.png" alt="Orco" width="400" align="center"/>
+        <img src="./dishonorfactions/src/main/resources/static/readMeMedia/0_Golem_Running_003.png" alt="Orco" width="400" align="center"/>
 
 5. __Humanos:__
     - Descripción: Las unidades humanas poseen una vida equilibrada y un ataque y velocidad equilibrada.
@@ -164,11 +164,11 @@ A continuación, se detallarán las características principales de cada una de 
         - _Thomas_:
             - Ataques:
                 1. Ataque a distancia lanzando una lanza.
-<img src="./dishonorfactions/src/main/resources/static/Art/humanProjectile.png" alt="Orco" width="100" align="center"/>
+                <img src="./dishonorfactions/src/main/resources/static/Art/humanProjectile.png" alt="Orco" width="100" align="center"/>
 
     - Tropas:
         - Minion humano.
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/2D_KNIGHT__Run_003.png" alt="Orco" width="400" align="center"/>
+        <img src="./dishonorfactions/src/main/resources/static/readMeMedia/2D_KNIGHT__Run_003.png" alt="Orco" width="400" align="center"/>
 
 ### ESCENARIOS:
 
