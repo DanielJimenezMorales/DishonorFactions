@@ -170,6 +170,8 @@ A continuación, se detallarán las características principales de cada una de 
         - Minion humano.
         <img src="./dishonorfactions/src/main/resources/static/readMeMedia/2D_KNIGHT__Run_003.png" alt="Orco" width="400" align="center"/>
 
+Todas estas tropas son cortesía de la página web opengameart.org
+
 ### ESCENARIOS:
 
 El escenario será una zona rectangular con una estética correspondiente a la temática del juego, como por ejemplo un bosque o un páramo. En la parte izquierda está la base de un jugador, y en la parte derecha la base del jugador contrario. Por último, cabe destacar que los personajes principales se podrán mover por todo el mapa. A continuación, vamos a presentar unas imágenes del escenario de nuestro videojuego.
