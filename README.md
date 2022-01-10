@@ -69,7 +69,7 @@ El sistema de controles para el movimiento se basa en el sistema típico en los 
 
 ### CONTROLADORES SOPORTADOS:
 
-1. Teclado.
+1. Teclado para el movimiento de los personajes además del ratón para navegar entre pantallas.
 
 ### INTERFAZ:
 
@@ -107,9 +107,9 @@ A continuación se presentará un boceto de los campeones de las tres facciones:
 
 _Princesa Noveny  . / . Sir Thomas . / . General Kalapax_
 
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/noveny.png" alt="Noveny" width="120"  align="left"/>
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/thomas.png" alt="Thomas" width="120" align="left"/>
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/kalapax.png" alt="Kalapax" width="110"/>
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/noveny.png" alt="Noveny" width="130"  align="left"/>
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/thomas.png" alt="Thomas" width="130" align="left"/>
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/kalapax.png" alt="Kalapax" width="120"/>
 
 Se han tomado referencias del videojuego _"Brawlhalla"_ en la estética de los personajes además referencias culturales de los juegos de rol y películas de fantasía como _"War of Warcraft"_ o _"El Señor de los Anillos"_ al incorporar civilizaciones no humanas como en este caso los orcos y los elfos.
 
