@@ -212,12 +212,6 @@ El juego tendrá distintos audios, en primer lugar habrá un audio para la inter
 
       Nuestro videojuego cuenta con un sistema de Nicks los cuales serán unicos a cada jugador y permitirá que los jugadores puedan identificarse.
 
-En primer lugar, los jugadores deberán logearse y podrán buscar una partida en linea
-
-
-
-
-
 
 ### JUEGOS SIMILARES:
 
