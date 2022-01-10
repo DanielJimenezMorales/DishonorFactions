@@ -57,7 +57,7 @@ El juego irá destinado sobre todo a jóvenes de entre 10 y 25 años que jueguen
 
 En una partida ambas facciones comenzarán con la vida al máximo. Las tropas saldrán cada segundo de una posición aleatoria de ambas bases dirección el bando contrario hasta que lleguen a la base enemiga o se encuentren con otras tropas enemigas y deban luchar. Mientras tanto, los jugadores controlarán a su campeón el cuál puede decidir entre atacar a las tropas enemigas, a la base enemiga o al campeón enemigo. Cuando un campeón muera, deberá esperar un tiempo de 10 segundos. El primero que derribe la torre al contrario ganará la batalla.
 
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/Navegacion JER.drawio (1).png" alt="Salir" width="400" align="center"/>
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/Navegacion JER.drawio.png" alt="Salir" width="400" align="center"/>
 
 ### CONTROLES:
 
