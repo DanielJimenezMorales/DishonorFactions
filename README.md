@@ -109,7 +109,7 @@ _Princesa Noveny  . / . Sir Thomas . / . General Kalapax_
 
 <img src="./dishonorfactions/src/main/resources/static/readMeMedia/noveny.png" alt="Noveny" width="150"  align="left"/>
 <img src="./dishonorfactions/src/main/resources/static/readMeMedia/thomas.png" alt="Thomas" width="150" align="left"/>
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/kalapax.png" alt="Kalapax" width="150"/>
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/kalapax.png" alt="Kalapax" width="140"/>
 
 Se han tomado referencias del videojuego _"Brawlhalla"_ en la estética de los personajes además referencias culturales de los juegos de rol y películas de fantasía como _"War of Warcraft"_ o _"El Señor de los Anillos"_ al incorporar civilizaciones no humanas como en este caso los orcos y los elfos.
 
