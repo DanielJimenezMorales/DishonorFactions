@@ -9,7 +9,7 @@
     - Controles.
     - Controladores soportados.
     - Interfaz.
-    - Arte.
+  
     - Personajes.
         - Elfos.
         - Orcos.
@@ -54,7 +54,7 @@ En una partida ambas facciones comenzarán con la vida al máximo. Las tropas sa
 
 ### CONTROLES:
 
-El sistema de controles para el movimiento se basa en el sistema típico en los juegos pc: 
+El sistema de controles para el movimiento se basa en el sistema típico en los juegos pc:
 -Primer jugador
     - __W A S D:__ Movimiento horizontal y vertical.
     - __F:__ Ataque básico.
@@ -101,7 +101,7 @@ El arte del videojuego tendrá un estilo Cartoon.
 A continuación se presentará un boceto de los campeones de las tres facciones:
 
 _Princesa Noveny  . / . Sir Thomas . / . General Kalapax_
- 
+
 <img src="./dishonorfactions/src/main/resources/static/readMeMedia/noveny.png" alt="Noveny" width="120"  align="left"/>
 <img src="./dishonorfactions/src/main/resources/static/readMeMedia/thomas.png" alt="Thomas" width="120" align="left"/>
 <img src="./dishonorfactions/src/main/resources/static/readMeMedia/kalapax.png" alt="Kalapax" width="110"/>
@@ -166,7 +166,7 @@ La cámara que se utilizará a lo largo de la partida será una cámara inclinad
 
 ### HISTORIA:
 
-Este argumento se centra en el personaje de Issabell II, difunta reina del reino de los elfos. Tras su muerte, las facciones de los humanos, orcos y elfos entraron en batalla para poder gobernar el territorio con sus tropas y campeones. 
+Este argumento se centra en el personaje de Issabell II, difunta reina del reino de los elfos. Tras su muerte, las facciones de los humanos, orcos y elfos entraron en batalla para poder gobernar el territorio con sus tropas y campeones.
 
 ### AUDIO:
 
@@ -185,12 +185,12 @@ El juego tendrá distintos audios, en primer lugar habrá un audio para la inter
 1.  __Funcionamiento del servidor del juego__
 
       Se ha hecho uso de el programa eclipse, con la extensión de java enterprise utilizando un lenguaje basado en java con herramientas Maven y Spring.
-        
+
       La comunicación de este juego se lleva a cabo a través de mensajes JSON con los datos necesarios. Los jugadores podrán moverse y atacar siendo esta información traspasada entre ambos. Esta información se deberá enviar a los usuarios según las acciones que estos realicen: moverse, atacar.
-        
+
       Nuestro videojuego cuenta con un sistema de Nicks los cuales serán unicos a cada jugador y permitirá que los jugadores puedan identificarse.
 
-En primer lugar, los jugadores deberán logearse y podrán buscar una partida en linea 
+En primer lugar, los jugadores deberán logearse y podrán buscar una partida en linea
 
 ** Funcionamiento del servidor del juego**
 
