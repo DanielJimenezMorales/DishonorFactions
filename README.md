@@ -178,17 +178,19 @@ Este argumento se centra en el personaje de Issabell II, difunta reina del reino
 El juego tendrá distintos audios, en primer lugar habrá un audio para la interfaz del juego, antes de comenzarlo, otro mientras se está jugando y por último, un audio que se reproducirá en caso de que el jugador pierda la partida. Además, cabe añadir que ciertas acciones que se produzcan durante el juego tendrán su propio audio.
 1. __Música__:
     - Música de menú principal
-<br>
-
-<a href="/DanielJimenezMorales/DishonorFactions/blob/DavidBienBranch/dishonorfactions/src/main/resources/static/Sounds/actions/destroy.mp3">View raw</a>
-
-<br>
+<a href="/DanielJimenezMorales/DishonorFactions/blob/DavidBienBranch/dishonorfactions/src/main/resources/static/Sounds/MainMenu.wav">Menu principal</a>
     - Música de fondo inGame
+<a href="/DanielJimenezMorales/DishonorFactions/blob/DavidBienBranch/dishonorfactions/src/main/resources/static/Sounds/play.mp3">Musica inGame</a>
+    - Música de selección de personaje:
+<a href="/DanielJimenezMorales/DishonorFactions/blob/DavidBienBranch/dishonorfactions/src/main/resources/static/Sounds/characterSelection.wav">Seleccion de campeon</a>
 
 3. __Efectos de sonido__:
-    - Sonidos de cada tropa.
-    - Sonidos de cada campeón.
-    - Sonidos de interfaz gráfica.
+    - Sonidos de reloj inicial.
+<a href="/DanielJimenezMorales/DishonorFactions/blob/DavidBienBranch/dishonorfactions/src/main/resources/static/Sounds/actions/tic_tac_1.mp3">Tic Tac</a>
+    - Sonidos del ataque.
+<a href="/DanielJimenezMorales/DishonorFactions/blob/DavidBienBranch/dishonorfactions/src/main/resources/static/Sounds/actions/throw_sword.mp3">Ataque de campeon</a>
+    - Sonidos de explosion por minions.
+<a href="/DanielJimenezMorales/DishonorFactions/blob/DavidBienBranch/dishonorfactions/src/main/resources/static/Sounds/actions/destroy.mp3">Explosion de minions</a>
 
 ### FUNCIONAMIENTO DE LA RED EN EL JUEGO:
 1.  __Funcionamiento del servidor del juego__
