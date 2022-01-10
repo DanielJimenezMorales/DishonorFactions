@@ -4,7 +4,7 @@
 <br>
 
 * [INTRODUCCIÓN](#Introducción)
-* [CARACTERÍSTICAS-DEL-VIDEOJUEGO](#Características del videojuego)
+* [CARACTERÍSTICAS DEL VIDEOJUEGO](#Características-del-videojuego)
   * [GÉNERO](#Género)
   * [PÚBLICO_OBJETIVO](#Público objetivo)
   * [CARACTERÍSTICAS-PRINCIPALES](#Características principales)
