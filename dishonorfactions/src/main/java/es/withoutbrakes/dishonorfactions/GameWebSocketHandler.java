@@ -14,10 +14,12 @@ public class GameWebSocketHandler extends TextWebSocketHandler
 	private Map<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
 	private List<WebSocketSession> sessionsWithoutALobby = new ArrayList<WebSocketSession>();
 	private List<Lobby> lobbies = new ArrayList<Lobby>();
+	private ServerTraceCreator serverTraceCreator = ServerTraceCreator.getInstance();
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-		System.out.println("Usuario conectado: " + session.getId());
+		serverTraceCreator.writeTraceMessage("Usuario conectado: " + session.getId());
+		//System.out.println("Usuario conectado: " + session.getId());
 		sessions.put(session.getId(), session);
 		sessionsWithoutALobby.add(session);
 		
@@ -29,7 +31,8 @@ public class GameWebSocketHandler extends TextWebSocketHandler
 	
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		System.out.println("Usuario desconectado: " + session.getId());
+		serverTraceCreator.writeTraceMessage("Usuario desconectado: " + session.getId());
+		//System.out.println("Usuario desconectado: " + session.getId());
 		sessions.remove(session.getId());
 	}
 	
@@ -79,7 +82,7 @@ public class GameWebSocketHandler extends TextWebSocketHandler
 		Boolean hasSuccesfullyAdded = lobbies.add(newLobby);
 		if(hasSuccesfullyAdded)
 		{
-			//Remove lob.by players from Without lobby list
+			//Remove lobby players from Without lobby list
 			sessionsWithoutALobby.remove(0);
 			sessionsWithoutALobby.remove(0);
 			

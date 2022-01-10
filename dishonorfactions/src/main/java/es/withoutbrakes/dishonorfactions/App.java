@@ -12,6 +12,8 @@ public class App implements WebSocketConfigurer
     {
         System.out.println( "Hello World!" );
         SpringApplication.run(App.class, args);
+        
+        ServerTraceCreator serverTraceCreator = ServerTraceCreator.getInstance();
     }
     
     @Override
