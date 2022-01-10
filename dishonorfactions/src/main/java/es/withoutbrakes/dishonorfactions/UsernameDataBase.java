@@ -91,7 +91,6 @@ public class UsernameDataBase
             
             while(line != null && line.compareTo(";") == 0)
             {
-            	System.out.println("me aaaaaa");
             	Username newUsername = new Username();
             	
             	line = bufferedReader.readLine();
