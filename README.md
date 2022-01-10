@@ -208,6 +208,8 @@ El juego tendrá distintos audios, en primer lugar habrá un audio para la inter
 
 Se ha creado una API Rest en Java usando el IDE Eclipse y el framework Spring. En esta imagen se muestra su diagrama de clases:
 
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/Clases JER.drawio.png" alt="fondo" width="400"  align="center"/>
+
 
 
 ### JUEGOS SIMILARES:
