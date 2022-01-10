@@ -19,7 +19,7 @@ public class App implements WebSocketConfigurer
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry)
     {
-    	registry.addHandler(gameWebSocketHandler(), "/gameWebSocket").setAllowedOrigins("*");;
+    	registry.addHandler(gameWebSocketHandler(), "/gameWebSocket").setAllowedOrigins("*");
     }
     
     @Bean

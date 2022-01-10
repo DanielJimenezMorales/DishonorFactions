@@ -46,28 +46,15 @@ export class Game extends Phaser.Scene
 
 	configureSocket()
 	{
-
 		this.gameWebSocket = this.registry.get("webSocket");
 
 		this.gameWebSocket.onmessage = (msg)=>
 		{	
 			var data = JSON.parse(msg.data);
-			console.log(data.type);
-			console.log(data.x);
-			console.log(data.y);
 
 			if(data.type == "position")
 			{
-
-				this.rightPlayer.setPosition(this.cameras.main.width - data.x, data.y);
-				this.rightPlayer.setFacingDirection(!data.facingDirection);
-				//this.rightPlayer.setHealth(data.health);
-				console.log("ha cambiado la pos");
-
-				if(data.isAttacking == true){
-					this.rightPlayer.shootProjectile();
-				}
-
+				this.rightPlayer.handleOnlineInputs(data);
 			}	
 		}
 

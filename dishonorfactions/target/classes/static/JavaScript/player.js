@@ -30,6 +30,11 @@ export class Player
 		this.healthBar;
 		this.currentHealth = this.playerData.health;
 
+		this.isMovingRight = false;
+		this.isMovingLeft = false;
+		this.isMovingUp = false;
+		this.isMovingDown = false;
+
 		this.isHorizontallyMoving = false;
 		this.isVerticallyMoving = false;
 		this.facingDirection; //TRUE = LEFT, FALSE = RIGHT
@@ -177,8 +182,114 @@ export class Player
 	{
 		if(!this.isDead)
 		{
-			this.updateMovementAndShooting();
+			if(this.playerSide == "left")
+			{
+				this.handleInputs();
+				this.updateMovementAndShootingOnly();
+			}
+
+			this.updateAnimations();
 			this.updateHealthBarPosition();
+		}
+	}
+
+	handleInputs()
+	{
+		this.isMovingLeft = false;
+		this.isMovingRight = false;
+		this.isMovingDown = false;
+		this.isMovingUp = false;
+		this.isShooting = false;
+
+		if(this.isUsingKeys)
+		{
+			if(this.shootingKey.F.isDown)
+			{
+				this.isShooting = true;
+			}
+
+			if (this.keyLeft.A.isDown)
+	        {
+	            this.isMovingLeft = true;
+	        }
+
+	        else if (this.keyRight.D.isDown)
+	        {
+	            this.isMovingRight = true;
+	        }
+
+	        if (this.keyUp.W.isDown)
+	        {
+	            this.isMovingUp = true;
+	        }
+
+	        else if (this.keyDown.S.isDown)
+	        {
+	            this.isMovingDown = true;
+	        }
+	    }
+	    else
+	    {
+	    	if(this.shootingKey.L.isDown)
+			{
+				this.isShooting = true;
+			}
+
+	    	if (this.cursors.left.isDown)
+	        {
+	            this.isMovingLeft = true;
+	        }
+
+	        else if (this.cursors.right.isDown)
+	        {
+	            this.isMovingRight = true;
+	        }
+
+	        if (this.cursors.up.isDown)
+	        {
+	            this.isMovingUp = true;
+	        }
+
+	        else if (this.cursors.down.isDown)
+	        {
+	            this.isMovingDown = true;
+	        }
+	    }
+	}
+
+	handleOnlineInputs(data)
+	{
+		this.isMovingLeft = false;
+		this.isMovingRight = false;
+		this.isMovingDown = false;
+		this.isMovingUp = false;
+		this.isShooting = false;
+
+		if((this.scene.cameras.main.width - data.x) < this.playerGraphics.x)
+		{
+			this.isMovingLeft = true;
+		}
+		else if((this.scene.cameras.main.width - data.x) > this.playerGraphics.x)
+		{
+			this.isMovingRight = true;
+		}
+
+		if(data.y < this.playerGraphics.y)
+		{
+			this.isMovingUp = true;
+		}
+		else if(data.y > this.playerGraphics.y)
+		{
+			this.isMovingDown = true;
+		}
+
+		this.setPosition(this.scene.cameras.main.width - data.x, data.y);
+		this.setFacingDirection(!data.facingDirection);
+
+		if(data.isAttacking)
+		{
+			this.isShooting = true;
+			this.shootProjectile();
 		}
 	}
 
@@ -186,161 +297,209 @@ export class Player
 	{
 		this.isHorizontallyMoving = false;
 		this.isVerticallyMoving = false;
-		this.isShooting = false;
+		var socketIsShooting = false;
 
-		if(this.isUsingKeys)
+		if(this.isShooting)
 		{
-			if(this.shootingKey.F.isDown)
-			{
-				if(this.canShoot)
-				{
-					this.canShoot = false;
-					this.shootProjectile();
-					this.resetShootingTimer();
-				}
-			}
-
-			if (this.keyLeft.A.isDown)
-	        {
-	            this.playerGraphics.setVelocityX(-this.playerData.movementSpeed.x);
-
-	            this.playerGraphics.anims.play(this.playerData.spriteID + 'left', true);
-	            this.isHorizontallyMoving = true;
-	            this.facingDirection = true;
-	        }
-
-	        else if (this.keyRight.D.isDown)
-	        {
-	            this.playerGraphics.setVelocityX(this.playerData.movementSpeed.x);
-	            this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true);
-	            this.isHorizontallyMoving = true;
-	            this.facingDirection = false;
-	        }
-
-	        else
-	        {	        	
-	            this.playerGraphics.setVelocityX(0);
-	        }
-
-	        if (this.keyUp.W.isDown)
-	        {
-	            this.playerGraphics.setVelocityY(-this.playerData.movementSpeed.y);
-
-	            if(!this.isHorizontallyMoving)
-	            {
-	            	this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true); //hay que cambiar el right ese por el sprite que sea
-	            }
-	            this.isVerticallyMoving = true;
-	        }
-
-	        else if (this.keyDown.S.isDown)
-	        {
-	            this.playerGraphics.setVelocityY(this.playerData.movementSpeed.y);
-
-	            if(!this.isHorizontallyMoving)
-	            {
-	            	this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true); //hay que cambiar el right ese por el sprite que sea
-	        	}
-	            this.isVerticallyMoving = true;
-	        }
-	        else
-	        {
-	        	this.playerGraphics.setVelocityY(0);
-	        }
-
-	        if(!this.isHorizontallyMoving && !this.isVerticallyMoving)
-	        {
-	            if(this.facingDirection)
-	        	{
-	        		this.playerGraphics.anims.play(this.playerData.spriteID + 'turnLeft');
-	        	}
-	        	else
-	        	{
-	        		this.playerGraphics.anims.play(this.playerData.spriteID + 'turnRight');
-	        	}
-	        }
-	    }
-	    else
-	    {
-	    	if(this.shootingKey.L.isDown && this.canShoot)
+			if(this.canShoot)
 			{
 				this.canShoot = false;
 				this.shootProjectile();
 				this.resetShootingTimer();
+				socketIsShooting = true;
 			}
+		}
 
-	    	if (this.cursors.left.isDown)
-	        {
-	            this.playerGraphics.setVelocityX(-this.playerData.movementSpeed.x);
+		if (this.isMovingLeft)
+        {
+            this.playerGraphics.setVelocityX(-this.playerData.movementSpeed.x);
 
-	            this.playerGraphics.anims.play(this.playerData.spriteID + 'left', true);
-	            this.isHorizontallyMoving = true;
-	            this.facingDirection = true;
-	        }
+            this.playerGraphics.anims.play(this.playerData.spriteID + 'left', true);
+            this.isHorizontallyMoving = true;
+            this.facingDirection = true;
+        }
 
-	        else if (this.cursors.right.isDown)
-	        {
-	            this.playerGraphics.setVelocityX(this.playerData.movementSpeed.x);
+        else if (this.isMovingRight)
+        {
+            this.playerGraphics.setVelocityX(this.playerData.movementSpeed.x);
+            this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true);
+            this.isHorizontallyMoving = true;
+            this.facingDirection = false;
+        }
 
-	            this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true);
-	            this.isHorizontallyMoving = true;
-	            this.facingDirection = false;
-	        }
-	        else
-	        {	        	
-	            this.playerGraphics.setVelocityX(0);
-	        }
+        else
+        {	        	
+            this.playerGraphics.setVelocityX(0);
+        }
 
-	        if (this.cursors.up.isDown)
-	        {
-	            this.playerGraphics.setVelocityY(-this.playerData.movementSpeed.y);
+        if (this.isMovingUp)
+        {
+            this.playerGraphics.setVelocityY(-this.playerData.movementSpeed.y);
 
-	            if(!this.isHorizontallyMoving)
-	            {
-	            	this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true); //hay que cambiar el right ese por el sprite que sea
-	            }
-	            this.isVerticallyMoving = true;
-	        }
+            if(!this.isHorizontallyMoving)
+            {
+            	this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true); //hay que cambiar el right ese por el sprite que sea
+            }
+            this.isVerticallyMoving = true;
+        }
 
-	        else if (this.cursors.down.isDown)
-	        {
-	            this.playerGraphics.setVelocityY(this.playerData.movementSpeed.y);
+        else if (this.isMovingDown)
+        {
+            this.playerGraphics.setVelocityY(this.playerData.movementSpeed.y);
 
-	            if(!this.isHorizontallyMoving)
-	            {
-	            	this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true); //hay que cambiar el right ese por el sprite que sea
-	            }
-	            this.isVerticallyMoving = true;
-	        }
-	        else
-	        {
-	            this.playerGraphics.setVelocityY(0);
-	        }
+            if(!this.isHorizontallyMoving)
+            {
+            	this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true); //hay que cambiar el right ese por el sprite que sea
+        	}
+            this.isVerticallyMoving = true;
+        }
+        else
+        {
+        	this.playerGraphics.setVelocityY(0);
+        }
 
-	        if(!this.isHorizontallyMoving && !this.isVerticallyMoving)
-	        {
-	        	if(this.facingDirection)
-	        	{
-	        		this.playerGraphics.anims.play(this.playerData.spriteID + 'turnLeft');
-	        	}
-	        	else
-	        	{
-	        		this.playerGraphics.anims.play(this.playerData.spriteID + 'turnRight');
-	        	}
-	        }
-	    }
+        if(!this.isHorizontallyMoving && !this.isVerticallyMoving)
+        {
+            if(this.facingDirection)
+        	{
+        		this.playerGraphics.anims.play(this.playerData.spriteID + 'turnLeft');
+        	}
+        	else
+        	{
+        		this.playerGraphics.anims.play(this.playerData.spriteID + 'turnRight');
+        	}
+        }
 
 	    if(this.playerSide == "left")
 	    {
 	    	var playerData = {"type" : "position",
 			"x" : this.playerGraphics.x,
-			"y" : this.playerGraphics.y, 
-			"isAttacking" : this.isShooting,
+			"y" : this.playerGraphics.y,
+			"isAttacking" : socketIsShooting,
 			"facingDirection": this.facingDirection,
-			"health" : this.health};
+			};
 
 			this.gameWebSocket.send(JSON.stringify(playerData));	
 	    }
+		
+	}
+
+	updateMovementAndShootingOnly()
+	{
+		this.isHorizontallyMoving = false;
+		this.isVerticallyMoving = false;
+		var socketIsShooting = false;
+
+		if(this.isShooting)
+		{
+
+			console.log("disparo");
+			if(this.canShoot)
+			{
+				this.canShoot = false;
+				this.shootProjectile();
+				this.resetShootingTimer();
+				socketIsShooting = true;
+			}
+		}
+
+		if (this.isMovingLeft)
+        {
+            this.playerGraphics.setVelocityX(-this.playerData.movementSpeed.x);
+            this.isHorizontallyMoving = true;
+            this.facingDirection = true;
+        }
+
+        else if (this.isMovingRight)
+        {
+            this.playerGraphics.setVelocityX(this.playerData.movementSpeed.x);
+            this.isHorizontallyMoving = true;
+            this.facingDirection = false;
+        }
+
+        else
+        {	        	
+            this.playerGraphics.setVelocityX(0);
+        }
+
+        if (this.isMovingUp)
+        {
+            this.playerGraphics.setVelocityY(-this.playerData.movementSpeed.y);
+
+            this.isVerticallyMoving = true;
+        }
+
+        else if (this.isMovingDown)
+        {
+            this.playerGraphics.setVelocityY(this.playerData.movementSpeed.y);
+
+            this.isVerticallyMoving = true;
+        }
+        else
+        {
+        	this.playerGraphics.setVelocityY(0);
+        }
+
+	    if(this.playerSide == "left")
+	    {
+	    	var playerData = {"type" : "position",
+			"x" : this.playerGraphics.x,
+			"y" : this.playerGraphics.y,
+			"isAttacking" : socketIsShooting,
+			"facingDirection": this.facingDirection,
+			};
+
+			this.gameWebSocket.send(JSON.stringify(playerData));	
+	    }
+		
+	}
+
+	updateAnimations()
+	{
+		this.isHorizontallyMoving = false;
+		this.isVerticallyMoving = false;
+
+		if (this.isMovingLeft)
+        {
+            this.playerGraphics.anims.play(this.playerData.spriteID + 'left', true);
+            this.isHorizontallyMoving = true;
+            this.facingDirection = true;
+        }
+
+        else if (this.isMovingRight)
+        {
+            this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true);
+            this.isHorizontallyMoving = true;
+            this.facingDirection = false;
+        }
+
+        if (this.isMovingUp || this.isMovingDown)
+        {
+            if(!this.isHorizontallyMoving)
+            {
+            	if(this.playerSide == "left")
+            	{
+            		this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true);
+            	}
+            	else if(this.playerSide == "right")
+            	{
+            		this.playerGraphics.anims.play(this.playerData.spriteID + 'left', true);
+            	}
+            }
+            this.isVerticallyMoving = true;
+        }
+
+        if(!this.isHorizontallyMoving && !this.isVerticallyMoving)
+        {
+            if(this.facingDirection)
+        	{
+        		this.playerGraphics.anims.play(this.playerData.spriteID + 'turnLeft');
+        	}
+        	else
+        	{
+        		this.playerGraphics.anims.play(this.playerData.spriteID + 'turnRight');
+        	}
+        }
 		
 	}
 
