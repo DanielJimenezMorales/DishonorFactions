@@ -206,11 +206,8 @@ El juego tendrá distintos audios, en primer lugar habrá un audio para la inter
 ### FUNCIONAMIENTO DE LA RED EN EL JUEGO:
 1.  __Funcionamiento del servidor del juego__
 
-      Se ha hecho uso de el programa eclipse, con la extensión de java enterprise utilizando un lenguaje basado en java con herramientas Maven y Spring.
+Se ha creado una API Rest en Java usando el IDE Eclipse y el framework Spring. En esta imagen se muestra su diagrama de clases:
 
-      La comunicación de este juego se lleva a cabo a través de mensajes JSON con los datos necesarios. Los jugadores podrán moverse y atacar siendo esta información traspasada entre ambos. Esta información se deberá enviar a los usuarios según las acciones que estos realicen: moverse, atacar.
-
-      Nuestro videojuego cuenta con un sistema de Nicks los cuales serán unicos a cada jugador y permitirá que los jugadores puedan identificarse.
 
 
 ### JUEGOS SIMILARES:
