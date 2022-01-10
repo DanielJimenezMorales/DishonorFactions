@@ -180,7 +180,7 @@ El juego tendrá distintos audios, en primer lugar habrá un audio para la inter
     - Música de menú principal
 <br>
 
-https://github.com/DanielJimenezMorales/DishonorFactions/blob/DavidBienBranch/dishonorfactions/src/main/resources/static/Sounds/play.mp3
+<a href="/DanielJimenezMorales/DishonorFactions/blob/DavidBienBranch/dishonorfactions/src/main/resources/static/Sounds/actions/destroy.mp3">View raw</a>
 
 <br>
     - Música de fondo inGame
