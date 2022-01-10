@@ -6,11 +6,11 @@
 * [INTRODUCCIÓN](#Introducción)
 * [CARACTERÍSTICAS DEL VIDEOJUEGO](#Características-del-videojuego)
   * [GÉNERO](#Género)
-  * [PÚBLICO_OBJETIVO](#Público objetivo)
-  * [CARACTERÍSTICAS-PRINCIPALES](#Características principales)
-  * [FLUJO-DEL-JUEGO](#Flujo del juego)
+  * [PÚBLICO OBJETIVO](#Público-objetivo)
+  * [CARACTERÍSTICAS PRINCIPALES](#Características-principales)
+  * [FLUJO DEL JUEGO](#Flujo-del-juego)
   * [CONTROLES](#Controles)
-  * [CONTROLADORES-SOPORTADOS](#Controladores soportados)
+  * [CONTROLADORES SOPORTADOS](#Controladores-soportados)
   * [INTERFAZ](#Interfaz)
   * [ARTE](#Arte)
   * [PERSONAJES](#Personajes)
@@ -20,12 +20,12 @@
   * [ESCENARIOS](#Escenarios)
   * [HISTORIA](#Historia)
   * [AUDIO](#Audio)
-    * #Música
-    * #Efectos de sonido
-  * [FUNCIONAMIENTO_DE_LA_RED_EN_EL_JUEGO](#Funcionamiento de la red en el juego)
-    * Funcionamiento del servidor
-    * [](#Clases y métodos implementados)
-* [JUEGOS SIMILARES](#Juegos similares)
+    * [Música](#Música)
+    * [Efectos de sonido](#Efectos-de-sonido)
+  * [FUNCIONAMIENTO DE LA RED EN EL JUEGO](#Funcionamiento-de-la-red-en-el-juego)
+    * [Funcionamiento del servidor del juego](#Funcionamiento-del-servidor)
+    * [](#Clases-y-métodos-implementados)
+* [JUEGOS SIMILARES](#Juegos-similares)
 
 <br>
 
