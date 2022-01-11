@@ -15,7 +15,8 @@ export class Preload extends Phaser.Scene
 		this.load.image('menu', './Art/menu.png');
 		this.load.image('creditsBackground', './Art/creditsScreen.png');
 		this.load.image('pauseBackground','./Art/menuPausa.png');
-		this.load.image('controlsBackground','./Art/controls.png');
+		this.load.image('offlineControlsBackground','./Art/controls.png');
+		this.load.image('onlineControlsBackground','./Art/controls.png');
 		this.load.image('loginBackground', './Art/loginBackground.png');
 		this.load.image('searchingLobbyBackground', './Art/searchingLobbyBackground.png');
 

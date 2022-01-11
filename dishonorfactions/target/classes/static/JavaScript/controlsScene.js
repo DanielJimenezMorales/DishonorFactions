@@ -4,11 +4,17 @@ export class Controls extends Phaser.Scene
 	{
 		super({ key: 'controls' });
 		this.goBackButton;
+		this.dataBetweenScenes;
+	}
+
+	init(data)
+	{
+		this.dataBetweenScenes = data;
 	}
 
 	create()
 	{
-        console.log('hola');
+
 		this.add.image(0, 0, 'controlsBackground').setOrigin(0, 0);
 		this.goBackButton = this.add.image(200,650,'goBackButton');
 		this.goBackButton.setInteractive();
