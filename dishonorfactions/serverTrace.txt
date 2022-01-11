@@ -1,1 +1,5 @@
 SERVER TRACE:
+[2022/01/11 13:36:24] Usuario conectado: dbc3e67d-8080-b5ee-03bd-5fad8db5eaae
+[2022/01/11 13:36:41] Usuario conectado: af2d52e8-0afe-52a8-225d-d07349af03ca
+[2022/01/11 13:37:13] Usuario desconectado: af2d52e8-0afe-52a8-225d-d07349af03ca
+[2022/01/11 13:37:13] Usuario desconectado: dbc3e67d-8080-b5ee-03bd-5fad8db5eaae

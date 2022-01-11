@@ -275,7 +275,10 @@ export class Game extends Phaser.Scene
 
 	create()
 	{
-		this.configureSocket();
+		if(this.registry.get("gameMode") == "Online")
+		{
+			this.configureSocket();
+		}
 
 		this.gameHasAlreadyFinished = false;
 

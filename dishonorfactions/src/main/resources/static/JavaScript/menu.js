@@ -75,7 +75,7 @@ export class Menu extends Phaser.Scene
 	switchToControlsScene(currentScene)
 	{
 		currentScene.backgroundMusic.stop();
-		currentScene.scene.start('controls');
+		currentScene.scene.start('controls', this.dataBetweenScenes);
 	}
 
 	switchToSearchingLobbyScene(currentScene)

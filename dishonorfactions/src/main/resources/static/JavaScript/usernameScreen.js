@@ -45,6 +45,7 @@ export class UsernameScene extends Phaser.Scene
 
 	        	this.dataForMenuScene.username = this.usernameValue.value;
 	        	this.dataForMenuScene.gameMode = "Online";
+	        	this.registry.set("gameMode", "Online");
 
 	        	if(this.enterMode == 'Register')
 	        	{
@@ -91,6 +92,7 @@ export class UsernameScene extends Phaser.Scene
     {
     	this.dataForMenuScene.username = "Invitado";
     	this.dataForMenuScene.gameMode = "Offline";
+    	this.registry.set("gameMode", "Offline");
     	this.changeToMenu();
     }
 

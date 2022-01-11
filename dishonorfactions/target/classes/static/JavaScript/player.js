@@ -182,9 +182,9 @@ export class Player
 	{
 		if(!this.isDead)
 		{
-			if(this.playerSide == "left")
-			{
-				this.handleInputs();
+			if(this.scene.registry.get("gameMode") == "Offline" || this.playerSide == "left")
+			{				
+				this.handleInputs();				
 				this.updateMovementAndShootingOnly();
 			}
 
@@ -349,7 +349,7 @@ export class Player
         	this.playerGraphics.setVelocityY(0);
         }
 
-	    if(this.playerSide == "left")
+	    if(this.playerSide == "left" && this.scene.registry.get("gameMode") == "Online")
 	    {
 	    	var playerData = {"type" : "position",
 			"x" : this.playerGraphics.x,
