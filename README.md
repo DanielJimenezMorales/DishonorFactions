@@ -24,8 +24,9 @@
     * Efectos de sonido
   * [FUNCIONAMIENTO DE LA RED EN EL JUEGO](#Funcionamiento-de-la-red-en-el-juego)
     * Funcionamiento del servidor
-    * Clases-y-métodos-implementados
+    * Clases y métodos implementados
 * [JUEGOS SIMILARES](#Juegos-similares)
+* [PASOS PARA EJECUTAR EL JUEGO](#Pasos-para-ejecutar-el-juego)
 
 <br>
 
@@ -224,3 +225,17 @@ _Fuente: "Plantas Vs Zombies"_
 
 <img src="./dishonorfactions/src/main/resources/static/readMeMedia/videojuegoReferencia3.PNG" alt="Empire Defense" width="400" align="center"/>
 _Fuente: "Empire Defense"_
+
+### PASOS PARA EJECUTAR EL JUEGO
+
+Primero es necesario levantar el servidor:
+
+Descargar el proyecto
+Importarlo con Eclipse o con Spring Tool Suite (opción Existing Maven Project)
+Ejecutarlo como SpringApplication (desde el fichero App.java)
+Acceder al servidor desde un cliente:
+
+El cliente será un navegador de la misma máquina que ha levantado el servidor o de otra.
+El navegador preferiblemente será Google Chrome.
+Buscar la dirección IP de la máquina que ha levantado el servidor en el puerto 8080.
+¡Jugar!
