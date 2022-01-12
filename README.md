@@ -211,7 +211,7 @@ Se ha creado una API Rest en Java usando el IDE Eclipse y el framework Spring. E
 
 <img src="./dishonorfactions/src/main/resources/static/readMeMedia/Clases JER.drawio.png" alt="fondo" width="400"  align="center"/>
 
-2.  __Elementos que comunicará al servidor__
+2.  __Elementos que se comunicarán al servidor__
 
 * Que está esperando para iniciar una partida
 * Qué personaje ha elegido
@@ -222,6 +222,15 @@ Se ha creado una API Rest en Java usando el IDE Eclipse y el framework Spring. E
 
 Clase manejador: GameWebSocketHandler:
 - La clase manejador implementada tiene una tabla Hash llamada sesiones en la que se guardan todas las sesiones que se unen al servidor.
+Tambien incluye una lista de sesiones sin sala además de una lista de lobbies.
+
+3. __Funciones implementadas__
+
+* afterConnectionEstablished(): Asigna a los usuarios conectados un identificador cuando se conectan.
+* afterConnectionClosed(): Elimina el identificador de los usuarios cuando estos se desconectan.
+* handleTextMessage(): Recibe un mensaje JSON de la nueva información en partida de un usuario de un usuario y reenvia el mensaje a su contrincante.
+* getOpponentSession(): Buscará en la lista de lobbies al identificador del jugador recibido y devolverá el identificador de su contrincante.
+* createLobby(): Recibirá los identificadores de dos sesiones y añadirá la nueva sala a la lista de lobbies.
 
 ### JUEGOS SIMILARES:
 
