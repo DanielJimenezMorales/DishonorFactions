@@ -1,5 +1,9 @@
 # DishonorFactions : Game Design Document
 
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/logoGrupo.png" alt="Salir" width="400" align="center"/>
+
+##Integrantes
+
 |Nombre   | Apellidos       | Correo | Github |
 |:------- |:--------------  |:------ | :----- |
 |Sergio   |García Delgado   |s.garciade.2019@alumnos.urjc.es | https://github.com/sergiogarcia21 |
