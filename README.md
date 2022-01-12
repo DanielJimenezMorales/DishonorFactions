@@ -211,7 +211,17 @@ Se ha creado una API Rest en Java usando el IDE Eclipse y el framework Spring. E
 
 <img src="./dishonorfactions/src/main/resources/static/readMeMedia/Clases JER.drawio.png" alt="fondo" width="400"  align="center"/>
 
+2.  __Elementos que comunicará al servidor__
 
+* Que está esperando para iniciar una partida
+* Qué personaje ha elegido
+* La posición del jugador
+* La acción de atacar y su dirección
+* La posición y número de sus minions
+* La salud de las torres y los personajes
+
+Clase manejador: GameWebSocketHandler:
+- La clase manejador implementada tiene una tabla Hash llamada sesiones en la que se guardan todas las sesiones que se unen al servidor.
 
 ### JUEGOS SIMILARES:
 
@@ -236,7 +246,9 @@ Ejecutarlo como SpringApplication (desde el fichero App.java)
 Acceder al servidor desde un cliente:
 
 El cliente será un navegador de la misma máquina que ha levantado el servidor o de otra.
+
 El navegador preferiblemente será Google Chrome.
+
 Buscar la dirección IP de la máquina que ha levantado el servidor en el puerto 8080.
 
 ¡Jugar!
