@@ -2,10 +2,10 @@
 
 |Nombre   | Apellidos       | Correo | Github |
 |:------- |:--------------  |:------ | :----- |
-|Sergio   |García Delgado   |:------ | https://github.com/sergiogarcia21 |
+|Sergio   |García Delgado   |s.garciade.2019@alumnos.urjc.es | https://github.com/sergiogarcia21 |
 |Daniel   |Jimenez Morales  |d.jimenezm.2019@alumnos.urjc.es | https://github.com/DanielJimenezMorales |
 |David    |Rodríguez Rives  |d.rodriguezr.2019@alumnos.urjc.es | https://github.com/miniesda |
-|Fernando |Expósito Arribas |:------ | https://github.com/fernanditicus |
+|Fernando |Expósito Arribas |f.exposito.2019@alumnos.urjc.es | https://github.com/fernanditicus |
 
 
 
