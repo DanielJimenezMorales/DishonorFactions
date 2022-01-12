@@ -221,8 +221,7 @@ Se ha creado una API Rest en Java usando el IDE Eclipse y el framework Spring. E
 * La salud de las torres y los personajes
 
 Clase manejador: GameWebSocketHandler:
-- La clase manejador implementada tiene una tabla Hash llamada sesiones en la que se guardan todas las sesiones que se unen al servidor.
-Tambien incluye una lista de sesiones sin sala además de una lista de lobbies.
+- La clase manejador implementada tiene una tabla Hash llamada sesiones en la que se guardan todas las sesiones que se unen al servidor. Tambien incluye una lista de sesiones sin sala además de una lista de lobbies.
 
 3. __Funciones implementadas__
 
