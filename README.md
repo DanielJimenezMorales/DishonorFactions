@@ -3,7 +3,7 @@
 |Nombre   | Apellidos       | Correo | Github |
 |:------- |:--------------  |:------ | :----- |
 |Sergio   |García Delgado   |:------ | :----- |
-|Daniel   |Jimenez Morales  |d.jimenezm.2019@alumnos.urjc.es | :----- |
+|Daniel   |Jimenez Morales  |d.jimenezm.2019@alumnos.urjc.es | github.com/DanielJimenezMorales |
 |David    |Rodríguez Rives  |d.rodriguezr.2019@alumnos.urjc.es | :----- |
 |Fernando |Expósito Arribas |:------ | :----- |
 
