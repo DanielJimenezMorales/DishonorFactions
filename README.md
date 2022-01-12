@@ -1,8 +1,9 @@
 # DishonorFactions : Game Design Document
 
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/logoGrupo.png" alt="Salir" width="400" align="center"/>
+## Creadores: Without Brakes
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/logoGrupo.png" alt="Logo" width="500" align="center"/>
 
-##Integrantes
+## Integrantes:
 
 |Nombre   | Apellidos       | Correo | Github |
 |:------- |:--------------  |:------ | :----- |
