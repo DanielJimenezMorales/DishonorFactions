@@ -264,8 +264,7 @@ _Fuente: "Empire Defense"_
 Primero es necesario levantar el servidor:
 
 Descargar el proyecto. Importarlo con Eclipse o con Spring Tool Suite (opción Existing Maven Project)
-Ejecutarlo como SpringApplication (desde el fichero App.java)
-Acceder al servidor desde un cliente:
+Ejecutarlo como SpringApplication (desde el fichero App.java). Acceder al servidor desde un cliente:
 
 El cliente será un navegador de la misma máquina que ha levantado el servidor o de otra.
 
