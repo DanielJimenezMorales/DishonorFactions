@@ -238,4 +238,5 @@ Acceder al servidor desde un cliente:
 El cliente será un navegador de la misma máquina que ha levantado el servidor o de otra.
 El navegador preferiblemente será Google Chrome.
 Buscar la dirección IP de la máquina que ha levantado el servidor en el puerto 8080.
+
 ¡Jugar!
