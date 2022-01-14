@@ -1,28 +1,49 @@
 # DishonorFactions : Game Design Document
+
+## Creadores: Without Brakes
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/logoGrupo.png" alt="Logo" width="500" align="center"/>
+
+## Integrantes:
+
+|Nombre | Apellidos | Correo | Github |
+|:----- |:--------- |:------ | :----- |
+|Sergio   |García Delgado   |s.garciade.2019@alumnos.urjc.es | https://github.com/sergiogarcia21 |
+|Daniel   |Jimenez Morales  |d.jimenezm.2019@alumnos.urjc.es | https://github.com/DanielJimenezMorales |
+|David    |Rodríguez Rives  |d.rodriguezr.2019@alumnos.urjc.es | https://github.com/miniesda |
+|Fernando |Expósito Arribas |f.exposito.2019@alumnos.urjc.es | https://github.com/fernanditicus |
+
+
+
 ## ÍNDICE:
-- Introducción.
-- Características del videojuego.
-    - Género.
-    - Público objetivo.
-    - Características principales.
-    - Flujo del juego.
-    - Controles.
-    - Controladores soportados.
-    - Interfaz.
-    - Arte.
-    - Personajes.
-        - Elfos.
-        - Orcos.
-        - Humanos.
-    - Escenarios.
-    - Historia
-    - Audio.
-        - Música.
-        - Efectos de sonido.
-    - Funcionamiento de la red en el juego.
-        - Funcionamiento del servidor
-        - Clases y métodos implementados
-- Juegos similares.
+
+<br>
+
+* [INTRODUCCIÓN](#Introducción)
+* [CARACTERÍSTICAS DEL VIDEOJUEGO](#Características-del-videojuego)
+  * [GÉNERO](#Género)
+  * [PÚBLICO OBJETIVO](#Público-objetivo)
+  * [CARACTERÍSTICAS PRINCIPALES](#Características-principales)
+  * [FLUJO DEL JUEGO](#Flujo-del-juego)
+  * [CONTROLES](#Controles)
+  * [CONTROLADORES SOPORTADOS](#Controladores-soportados)
+  * [INTERFAZ](#Interfaz)
+  * [ARTE](#Arte)
+  * [PERSONAJES](#Personajes)
+    * Orcos
+    * Elfos
+    * Humanos
+  * [ESCENARIOS](#Escenarios)
+  * [HISTORIA](#Historia)
+  * [AUDIO](#Audio)
+    * Música
+    * Efectos de sonido
+  * [FUNCIONAMIENTO DE LA RED EN EL JUEGO](#Funcionamiento-de-la-red-en-el-juego)
+    * Funcionamiento del servidor
+    * Clases y métodos implementados
+* [JUEGOS SIMILARES](#Juegos-similares)
+* [PASOS PARA EJECUTAR EL JUEGO](#Pasos-para-ejecutar-el-juego)
+
+<br>
 
 Proyecto colaborativo de la asignatura de Juegos en Red
 ## INTRODUCCIÓN:
@@ -52,9 +73,13 @@ El juego irá destinado sobre todo a jóvenes de entre 10 y 25 años que jueguen
 
 En una partida ambas facciones comenzarán con la vida al máximo. Las tropas saldrán cada segundo de una posición aleatoria de ambas bases dirección el bando contrario hasta que lleguen a la base enemiga o se encuentren con otras tropas enemigas y deban luchar. Mientras tanto, los jugadores controlarán a su campeón el cuál puede decidir entre atacar a las tropas enemigas, a la base enemiga o al campeón enemigo. Cuando un campeón muera, deberá esperar un tiempo de 10 segundos. El primero que derribe la torre al contrario ganará la batalla.
 
+El flujo de pantallas sigue el siguiente orden:
+
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/Navegacion JER.drawio (1).png" alt="Salir" width="400" align="center"/>
+
 ### CONTROLES:
 
-El sistema de controles para el movimiento se basa en el sistema típico en los juegos pc: 
+El sistema de controles para el movimiento se basa en el sistema típico en los juegos pc:
 -Primer jugador
     - __W A S D:__ Movimiento horizontal y vertical.
     - __F:__ Ataque básico.
@@ -64,7 +89,7 @@ El sistema de controles para el movimiento se basa en el sistema típico en los 
 
 ### CONTROLADORES SOPORTADOS:
 
-1. Teclado.
+1. Teclado para el movimiento de los personajes además del ratón para navegar entre pantallas.
 
 ### INTERFAZ:
 
@@ -101,10 +126,10 @@ El arte del videojuego tendrá un estilo Cartoon.
 A continuación se presentará un boceto de los campeones de las tres facciones:
 
 _Princesa Noveny  . / . Sir Thomas . / . General Kalapax_
- 
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/noveny.png" alt="Noveny" width="120"  align="left"/>
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/thomas.png" alt="Thomas" width="120" align="left"/>
-<img src="./dishonorfactions/src/main/resources/static/readMeMedia/kalapax.png" alt="Kalapax" width="110"/>
+
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/noveny.png" alt="Noveny" width="150"  align="left"/>
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/thomas.png" alt="Thomas" width="150" align="left"/>
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/kalapax.png" alt="Kalapax" width="140"/>
 
 Se han tomado referencias del videojuego _"Brawlhalla"_ en la estética de los personajes además referencias culturales de los juegos de rol y películas de fantasía como _"War of Warcraft"_ o _"El Señor de los Anillos"_ al incorporar civilizaciones no humanas como en este caso los orcos y los elfos.
 
@@ -131,9 +156,11 @@ A continuación, se detallarán las características principales de cada una de 
         - _Kalapax_:
             - Ataques:
                 1. Ataque a distancia lanzando el hacha.
+                <img src="./dishonorfactions/src/main/resources/static/Art/orcProjectile.png" alt="Orco" width="100" align="center"/>
 
     - Tropas:
         - Minion orco.
+        <img src="./dishonorfactions/src/main/resources/static/readMeMedia/0_Orc_Running_003.png" alt="Orco" width="400" align="center"/>
 
 3. __Elfos:__
     - Descripción: Las unidades élficas son las más rápidas y ágiles. Pero tanto su vida como su fuerza se ven reducidas.
@@ -141,10 +168,11 @@ A continuación, se detallarán las características principales de cada una de 
         - _Noveny_:
             - Ataques:
                 1. Ataque a distancia usando su poderoso arco.
+                <img src="./dishonorfactions/src/main/resources/static/Art/elfProjectile.png" alt="Orco" width="100" align="center"/>
 
     - Tropas:
         - Minion elfo.
-
+        <img src="./dishonorfactions/src/main/resources/static/readMeMedia/0_Golem_Running_003.png" alt="Orco" width="400" align="center"/>
 
 5. __Humanos:__
     - Descripción: Las unidades humanas poseen una vida equilibrada y un ataque y velocidad equilibrada.
@@ -152,9 +180,13 @@ A continuación, se detallarán las características principales de cada una de 
         - _Thomas_:
             - Ataques:
                 1. Ataque a distancia lanzando una lanza.
+                <img src="./dishonorfactions/src/main/resources/static/Art/humanProjectile.png" alt="Orco" width="100" align="center"/>
 
     - Tropas:
         - Minion humano.
+        <img src="./dishonorfactions/src/main/resources/static/readMeMedia/2D_KNIGHT__Run_003.png" alt="Orco" width="400" align="center"/>
+
+Todas estas tropas son cortesía de la página web opengameart.org
 
 ### ESCENARIOS:
 
@@ -166,36 +198,53 @@ La cámara que se utilizará a lo largo de la partida será una cámara inclinad
 
 ### HISTORIA:
 
-Este argumento se centra en el personaje de Issabell II, difunta reina del reino de los elfos. Tras su muerte, las facciones de los humanos, orcos y elfos entraron en batalla para poder gobernar el territorio con sus tropas y campeones. 
+Este argumento se centra en el personaje de Issabell II, difunta reina del reino de los elfos. Tras su muerte, las facciones de los humanos, orcos y elfos entraron en batalla para poder gobernar el territorio con sus tropas y campeones.
 
 ### AUDIO:
 
 El juego tendrá distintos audios, en primer lugar habrá un audio para la interfaz del juego, antes de comenzarlo, otro mientras se está jugando y por último, un audio que se reproducirá en caso de que el jugador pierda la partida. Además, cabe añadir que ciertas acciones que se produzcan durante el juego tendrán su propio audio.
 1. __Música__:
     - Música de menú principal
-    <audio src="./dishonorfactions/src/main/resources/static/Sounds/MainMenu.wav"></audio>
+<a href="/dishonorfactions/src/main/resources/static/Sounds/MainMenu.wav">Menu principal</a>
     - Música de fondo inGame
+<a href="/dishonorfactions/src/main/resources/static/Sounds/play.mp3">Musica inGame</a>
+    - Música de selección de personaje:
+<a href="/dishonorfactions/src/main/resources/static/Sounds/characterSelection.wav">Seleccion de campeon</a>
 
 3. __Efectos de sonido__:
-    - Sonidos de cada tropa.
-    - Sonidos de cada campeón.
-    - Sonidos de interfaz gráfica.
+    - Sonidos de reloj inicial.
+<a href="/dishonorfactions/src/main/resources/static/Sounds/actions/tic_tac_1.mp3">Tic Tac</a>
+    - Sonidos del ataque.
+<a href="/dishonorfactions/src/main/resources/static/Sounds/actions/throw_sword.mp3">Ataque de campeon</a>
+    - Sonidos de explosion por minions.
+<a href="/dishonorfactions/src/main/resources/static/Sounds/actions/destroy.mp3">Explosion de minions</a>
 
 ### FUNCIONAMIENTO DE LA RED EN EL JUEGO:
 1.  __Funcionamiento del servidor del juego__
 
-      Se ha hecho uso de el programa eclipse, con la extensión de java enterprise utilizando un lenguaje basado en java con herramientas Maven y Spring.
-        
-      La comunicación de este juego se lleva a cabo a través de mensajes JSON con los datos necesarios. Los jugadores podrán moverse y atacar siendo esta información traspasada entre ambos. Esta información se deberá enviar a los usuarios según las acciones que estos realicen: moverse, atacar.
-        
-      Nuestro videojuego cuenta con un sistema de Nicks los cuales serán unicos a cada jugador y permitirá que los jugadores puedan identificarse.
+Se ha creado una API Rest en Java usando el IDE Eclipse y el framework Spring. En esta imagen se muestra su diagrama de clases:
 
-En primer lugar, los jugadores deberán logearse y podrán buscar una partida en linea 
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/Clases JER.drawio.png" alt="fondo" width="400"  align="center"/>
 
-** Funcionamiento del servidor del juego**
+2.  __Elementos que se comunicarán al servidor__
 
+* Que está esperando para iniciar una partida
+* Qué personaje ha elegido
+* La posición del jugador
+* La acción de atacar y su dirección
+* La posición y número de sus minions
+* La salud de las torres y los personajes
 
+Clase manejador: GameWebSocketHandler:
+- La clase manejador implementada tiene una tabla Hash llamada sesiones en la que se guardan todas las sesiones que se unen al servidor. Tambien incluye una lista de sesiones sin sala además de una lista de lobbies.
 
+3. __Funciones implementadas__
+
+* afterConnectionEstablished(): Asigna a los usuarios conectados un identificador cuando se conectan.
+* afterConnectionClosed(): Elimina el identificador de los usuarios cuando estos se desconectan.
+* handleTextMessage(): Recibe un mensaje JSON de la nueva información en partida de un usuario de un usuario y reenvia el mensaje a su contrincante.
+* getOpponentSession(): Buscará en la lista de lobbies al identificador del jugador recibido y devolverá el identificador de su contrincante.
+* createLobby(): Recibirá los identificadores de dos sesiones y añadirá la nueva sala a la lista de lobbies.
 
 ### JUEGOS SIMILARES:
 
@@ -209,3 +258,18 @@ _Fuente: "Plantas Vs Zombies"_
 
 <img src="./dishonorfactions/src/main/resources/static/readMeMedia/videojuegoReferencia3.PNG" alt="Empire Defense" width="400" align="center"/>
 _Fuente: "Empire Defense"_
+
+### PASOS PARA EJECUTAR EL JUEGO
+
+Primero es necesario levantar el servidor:
+
+Descargar el proyecto. Importarlo con Eclipse o con Spring Tool Suite (opción Existing Maven Project)
+Ejecutarlo como SpringApplication (desde el fichero App.java). Acceder al servidor desde un cliente:
+
+El cliente será un navegador de la misma máquina que ha levantado el servidor o de otra.
+
+El navegador preferiblemente será Google Chrome.
+
+Buscar la dirección IP de la máquina que ha levantado el servidor en el puerto 8080.
+
+¡Jugar!
