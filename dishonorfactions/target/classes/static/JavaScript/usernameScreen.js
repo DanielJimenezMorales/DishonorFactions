@@ -28,7 +28,7 @@ export class UsernameScene extends Phaser.Scene
 	{
 		this.loginBackground = this.add.image(0, 0, 'loginBackground').setOrigin(0);
 		//Create a few variables like texts and buttons
-		this.nameInput = this.add.dom(640, 260).createFromCache('usernameInputField');
+		this.nameInput = this.add.dom(this.cameras.main.width / 2, this.cameras.main.height / 2 - 100).createFromCache('usernameInputField');
 		this.usernameValue = this.nameInput.getChildByName("name");
 	    this.passwordValue = this.nameInput.getChildByName("password");
 
@@ -180,7 +180,7 @@ export class UsernameScene extends Phaser.Scene
         }).fail((data) =>
         {
         	var errorBody = "";
-        	if(JSON.stringify(data.status) == 404)
+        	if(JSON.stringify(data.status) == 409)
         	{
         		errorBody = "The username and/or password are incorrect.";
         	}

@@ -93,11 +93,11 @@ export class Preload extends Phaser.Scene
 		var progressBar = this.add.graphics();
 		var progressBox = this.add.graphics();
 		progressBox.fillStyle(0x222222, 0.8);
-		progressBox.fillRect(400, 320, 470, 50);
+		progressBox.fillRect(width / 2 - (470 / 2), height / 2 - (50 / 2), 470, 50);
 		this.load.on('progress', function (value) {
 		    progressBar.clear();
 		    progressBar.fillStyle(0xffffff, 1);
-		    progressBar.fillRect(410, 330, 450 * value, 30);
+		    progressBar.fillRect(width / 2 - (450 / 2), height / 2 - (30 / 2), 450 * value, 30);
 		});
         
         var loadingText = this.make.text({
