@@ -140,6 +140,17 @@ export class Seleccion extends Phaser.Scene
 				this.backgroundMusic.stop();
 				
 				this.gameWebSocket.send(playerSelection);
+				
+				if(playerSelection=='elfChampionData') {
+					this.add.image(0, 0, 'pantallaElfa').setOrigin(0, 0);
+				}
+				else if(playerSelection=='orcChampionData'){
+						this.add.image(0, 0, 'pantallaOrco').setOrigin(0, 0);
+					}
+				else{
+					this.add.image(0, 0, 'pantallaHumano').setOrigin(0, 0);
+				}
+				
 				this.isPlayerReady = true;
 				this.preGameConfiguration.leftPlayer = playerSelection;
 			}

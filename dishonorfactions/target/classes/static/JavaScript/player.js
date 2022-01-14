@@ -29,6 +29,8 @@ export class Player
 		this.healthBarPositionY = this.initialPositionY - this.healthBarVerticalDisplacement;
 		this.healthBar;
 		this.currentHealth = this.playerData.health;
+		
+		this.healthText;
 
 		this.isMovingRight = false;
 		this.isMovingLeft = false;
@@ -105,6 +107,10 @@ export class Player
 		this.healthBar = new HealthBar(this.scene, this.currentHealth, this.healthBarPositionX, this.healthBarPositionY);
 		this.healthBar.create();
 		this.healthBar.scaleBar(0.4, 0.7);
+		
+		this.healthText = this.scene.add.text(this.healthBarPositionX-20, this.healthBarPositionY, this.currentHealth, {fontSize: 20, strokeThickness: 2});
+		
+		
 
 		this.playerGraphics = this.scene.physics.add.sprite(this.initialPositionX, this.initialPositionY, this.playerData.spriteID);
 		this.createAnimations();
@@ -427,6 +433,7 @@ export class Player
 	{
 		this.calculateHealthBarPosition();
 	    this.healthBar.setPosition(this.healthBarPositionX, this.healthBarPositionY);
+	   
 	}
 
 	calculateHealthBarPosition()
@@ -472,8 +479,8 @@ export class Player
 
 	damagePlayer(damage)
 	{
-		this.currentHealth -= damage;
-
+		this.currentHealth -= damage+1;
+	this.healthText.setText(this.currentHealth);
 		if(this.currentHealth < 0)
 		{
 			this.currentHealth = 0;
@@ -488,6 +495,7 @@ export class Player
 		this.isDead = true;
 		this.playerGraphics.visible = false;
 		this.playerGraphics.body.enable = false;
+		this.healthText.visible = false;
 		this.deadTimer = this.scene.time.addEvent(
 			{
 				delay: this.playerData.timeUntilReviving,
@@ -503,8 +511,10 @@ export class Player
 	{
 		this.currentHealth = this.playerData.health;
 		this.healthBar.setValue(this.currentHealth);
+		this.healthText.setText(this.currentHealth);
 		this.playerGraphics.visible = true;
 		this.playerGraphics.body.enable = true;
 		this.isDead = false;
+		this.healthText.visible = true;
 	}
 }

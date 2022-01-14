@@ -40,3 +40,6 @@ no
 ;
 rr
 rr
+;
+miniesda
+miniesda

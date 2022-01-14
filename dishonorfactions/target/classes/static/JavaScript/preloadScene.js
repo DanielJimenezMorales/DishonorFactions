@@ -19,6 +19,7 @@ export class Preload extends Phaser.Scene
 		this.load.image('onlineControlsBackground','./Art/onlineControlsBackground.png');
 		this.load.image('loginBackground', './Art/loginBackground.png');
 		this.load.image('searchingLobbyBackground', './Art/searchingLobbyBackground.png');
+		this.load.image('objetivos','./Art/objetivos.png')
 
 		//Particle effects
 		this.load.atlas('explosion', './Art/Particles/explosion.png', './Art/Particles/explosion.json');
@@ -55,6 +56,12 @@ export class Preload extends Phaser.Scene
 		this.load.image('humanProjectile', './Art/humanProjectile.png');
 
 		this.load.image('pantalla', './Art/pantallaPersonajes.png');
+		
+		this.load.image('pantallaOrco', './Art/pantallaPersonajesOrco.png');
+		this.load.image('pantallaElfa', './Art/pantallaPersonajesElfa.png');
+		this.load.image('pantallaHumano', './Art/pantallaPersonajesHumano.png');
+		
+		
         this.load.image('boton', './Art/botonSeleccionarPersonaje.png');
 		this.load.image('boton2', './Art/botonSeleccionarPersonaje.png');
 		this.load.image('boton3', './Art/botonSeleccionarPersonaje.png');
@@ -71,7 +78,8 @@ export class Preload extends Phaser.Scene
 		this.load.image('elfVictoryScreen', './Art/elfVictoryScreen.png');
 		this.load.image('orcVictoryScreen', './Art/orcVictoryScreen.png');
 		this.load.image('botonControles','./Art/botonControles.png');
-		this.load.image('button', './Art/button.png');
+		this.load.image('button', './Art/button.png'); 
+		this.load.image('goObjectiveButton', './Art/botonObjetivos.png');
 	}
 
 	loadAudios()
