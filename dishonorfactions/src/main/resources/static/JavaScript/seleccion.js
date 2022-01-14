@@ -55,6 +55,10 @@ export class Seleccion extends Phaser.Scene
 
 	create()
 	{
+		this.isPlayerReady = false;
+		this.isOpponentReady = false;
+		
+		this.clicksCounter = 0;
 		if(this.dataBetweenScenes.gameMode == "Online")
 		{
 			this.configureSocket();
@@ -92,6 +96,7 @@ export class Seleccion extends Phaser.Scene
 		this.elfButton.on('pointerup', () => this.clickConfiguration('elfChampionData'));
 		this.elfButton.on('pointerover', () => this.enableButtonShadow(this.elfButtonShadow));
 		this.elfButton.on('pointerout', () => this.disableButtonShadow(this.elfButtonShadow));
+
 		this.orcButton.setInteractive();
 		this.orcButton.on('pointerup', () => this.clickConfiguration('orcChampionData'));
 		this.orcButton.on('pointerover', () => this.enableButtonShadow(this.orcButtonShadow));		
@@ -122,6 +127,7 @@ export class Seleccion extends Phaser.Scene
 			//Comprobar si ya todos los jugadores han elegido counter = 2
 			if(this.clicksCounter == 2)
 			{
+				console.log("ccccccccccccccccc");
 				this.backgroundMusic.stop();
 				this.scene.start('game', this.preGameConfiguration);
 			}

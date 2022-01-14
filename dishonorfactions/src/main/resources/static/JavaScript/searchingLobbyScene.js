@@ -1,4 +1,5 @@
 import {LoadingAnimation} from './loadingAnimation.js';
+import {Button} from './button.js';
 
 export class SearchingLobbyScene extends Phaser.Scene
 {
@@ -10,6 +11,7 @@ export class SearchingLobbyScene extends Phaser.Scene
 		this.background;
 		this.titleText;
 		this.loadingEffect;
+		this.goBackToMenuButton;
 	}
 
 	init(data)
@@ -25,6 +27,8 @@ export class SearchingLobbyScene extends Phaser.Scene
 		{
 	  		this.gameSocket.send('Estableciendo conexion');
 	  		console.log("Intentando establecer conexión");
+
+			this.registry.set("webSocket", this.gameSocket);
 		}
 
 		this.gameSocket.onmessage = (msg) =>
@@ -45,8 +49,8 @@ export class SearchingLobbyScene extends Phaser.Scene
 		this.gameSocket.onclose = () =>
 		{
 			console.log("WS Conexión cerrada");
+			this.registry.remove("webSocket");
 		}
-		this.registry.set("webSocket", this.gameSocket);
 	}
 
 	create()
@@ -55,6 +59,14 @@ export class SearchingLobbyScene extends Phaser.Scene
 		this.background = this.add.image(0, 0, 'searchingLobbyBackground').setOrigin(0, 0);
 		this.titleText = this.add.text(this.cameras.main.width / 2, 100, "Searching for a match...", {fontSize: 50, strokeThickness: 1.5}).setOrigin(0.5, 0.5);
 		this.loadingEffect = new LoadingAnimation(this.cameras.main.width / 2, (this.cameras.main.height / 2) - 50, 70, this, 50);
+		this.goBackToMenuButton = new Button(this.cameras.main.width / 2, this.cameras.main.height - 70,
+			'Back to menu', 'button', 0.8, 0.7, 35, 15, this, () => {this.switchToMainMenuScene(this);});
+	}
+
+	switchToMainMenuScene(currentScene)
+	{
+		this.gameSocket.close();
+		currentScene.scene.start('menu', this.dataBetweenScenes);
 	}
 
 	switchToSelectionScene(currentScene)

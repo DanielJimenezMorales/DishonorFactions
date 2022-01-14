@@ -187,6 +187,28 @@ A continuación, se detallarán las características principales de cada una de 
         <img src="./dishonorfactions/src/main/resources/static/readMeMedia/2D_KNIGHT__Run_003.png" alt="Orco" width="400" align="center"/>
 
 Todas estas tropas son cortesía de la página web opengameart.org
+<<<<<<< HEAD
+=======
+
+En cuanto a la elección de los colores utilizados podemos destacar los distintos patrones de colores:
+
+- Elfos:
+
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/colores elfa.png" alt="fondo" width="400"  align="center"/>
+Para la creación y selección del campeon de los elfos y los minions decidimos basarnos en la idea de un ambiente rústico y natural, con la utilización en gran medida de colores verdosos o amarillentos, propios de las plantas y tierra de bosques.
+
+- Orcos:
+
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/colores orco.png" alt="fondo" width="400"  align="center"/>
+Para la creación de los orcos se decidió usar un tono verdoso para la piel, propio de los juegos clásicos de fantasía además de utilizar colores marrones y rojos para los detalles y ropa, ya que suponemos que se tratan de una raza agresiva y conquistadora con ropas de cuero ensangrentadas.
+
+- Humanos:
+
+<img src="./dishonorfactions/src/main/resources/static/readMeMedia/colores humano.png" alt="fondo" width="400"  align="center"/>
+Para los colores de los humanos decidimos basarnos fuertemente en colores metálicos para las armaduras. Además de la inclusión de colores amarillentos para el pelo, propia de muchas clases nobles de la edad media.
+
+- Aparte de estos colores utilizados cabe destacar la inclusión de pqueñas referencias al videojuego WoW en la simbología de los campeones orco y humano con los símbolos de la Orda y la Alianza respectivamente.
+>>>>>>> main
 
 ### ESCENARIOS:
 

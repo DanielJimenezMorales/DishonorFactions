@@ -42,6 +42,7 @@ export class Player
 		this.canShoot = true;
 		this.projectilesGroup;
 		this.isShooting = false;
+		this.socketIsShooting = false;
 
 		this.isDead = false;
 		this.deadTimer;
@@ -54,10 +55,20 @@ export class Player
 		return this.playerGraphics;
 	}
 
+	getSocketIsShooting()
+	{
+		return this.socketIsShooting;
+	}
+
 	setPosition(x,  y) //for websocket
 	{ 
 		this.playerGraphics.x = x;
 		this.playerGraphics.y = y;
+	}
+
+	getFacingDirection()
+	{
+		return this.facingDirection;
 	}
 
 	setFacingDirection(facing){
@@ -182,9 +193,9 @@ export class Player
 	{
 		if(!this.isDead)
 		{
-			if(this.playerSide == "left")
-			{
-				this.handleInputs();
+			if(this.scene.registry.get("gameMode") == "Offline" || this.playerSide == "left")
+			{				
+				this.handleInputs();				
 				this.updateMovementAndShootingOnly();
 			}
 
@@ -293,102 +304,11 @@ export class Player
 		}
 	}
 
-	updateMovementAndShooting()
-	{
-		this.isHorizontallyMoving = false;
-		this.isVerticallyMoving = false;
-		var socketIsShooting = false;
-
-		if(this.isShooting)
-		{
-			if(this.canShoot)
-			{
-				this.canShoot = false;
-				this.shootProjectile();
-				this.resetShootingTimer();
-				socketIsShooting = true;
-			}
-		}
-
-		if (this.isMovingLeft)
-        {
-            this.playerGraphics.setVelocityX(-this.playerData.movementSpeed.x);
-
-            this.playerGraphics.anims.play(this.playerData.spriteID + 'left', true);
-            this.isHorizontallyMoving = true;
-            this.facingDirection = true;
-        }
-
-        else if (this.isMovingRight)
-        {
-            this.playerGraphics.setVelocityX(this.playerData.movementSpeed.x);
-            this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true);
-            this.isHorizontallyMoving = true;
-            this.facingDirection = false;
-        }
-
-        else
-        {	        	
-            this.playerGraphics.setVelocityX(0);
-        }
-
-        if (this.isMovingUp)
-        {
-            this.playerGraphics.setVelocityY(-this.playerData.movementSpeed.y);
-
-            if(!this.isHorizontallyMoving)
-            {
-            	this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true); //hay que cambiar el right ese por el sprite que sea
-            }
-            this.isVerticallyMoving = true;
-        }
-
-        else if (this.isMovingDown)
-        {
-            this.playerGraphics.setVelocityY(this.playerData.movementSpeed.y);
-
-            if(!this.isHorizontallyMoving)
-            {
-            	this.playerGraphics.anims.play(this.playerData.spriteID + 'right', true); //hay que cambiar el right ese por el sprite que sea
-        	}
-            this.isVerticallyMoving = true;
-        }
-        else
-        {
-        	this.playerGraphics.setVelocityY(0);
-        }
-
-        if(!this.isHorizontallyMoving && !this.isVerticallyMoving)
-        {
-            if(this.facingDirection)
-        	{
-        		this.playerGraphics.anims.play(this.playerData.spriteID + 'turnLeft');
-        	}
-        	else
-        	{
-        		this.playerGraphics.anims.play(this.playerData.spriteID + 'turnRight');
-        	}
-        }
-
-	    if(this.playerSide == "left")
-	    {
-	    	var playerData = {"type" : "position",
-			"x" : this.playerGraphics.x,
-			"y" : this.playerGraphics.y,
-			"isAttacking" : socketIsShooting,
-			"facingDirection": this.facingDirection,
-			};
-
-			this.gameWebSocket.send(JSON.stringify(playerData));	
-	    }
-		
-	}
-
 	updateMovementAndShootingOnly()
 	{
 		this.isHorizontallyMoving = false;
 		this.isVerticallyMoving = false;
-		var socketIsShooting = false;
+		this.socketIsShooting = false;
 
 		if(this.isShooting)
 		{
@@ -399,7 +319,7 @@ export class Player
 				this.canShoot = false;
 				this.shootProjectile();
 				this.resetShootingTimer();
-				socketIsShooting = true;
+				this.socketIsShooting = true;
 			}
 		}
 
@@ -439,8 +359,8 @@ export class Player
         {
         	this.playerGraphics.setVelocityY(0);
         }
-
-	    if(this.playerSide == "left")
+        /*
+	    if(this.playerSide == "left" && this.scene.registry.get("gameMode") == "Online")
 	    {
 	    	var playerData = {"type" : "position",
 			"x" : this.playerGraphics.x,
@@ -450,7 +370,7 @@ export class Player
 			};
 
 			this.gameWebSocket.send(JSON.stringify(playerData));	
-	    }
+	    }*/
 		
 	}
 

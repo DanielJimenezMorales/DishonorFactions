@@ -34,6 +34,7 @@ public class GameWebSocketHandler extends TextWebSocketHandler
 		serverTraceCreator.writeTraceMessage("Usuario desconectado: " + session.getId());
 		//System.out.println("Usuario desconectado: " + session.getId());
 		sessions.remove(session.getId());
+		sessionsWithoutALobby.remove(session);
 	}
 	
 	@Override
