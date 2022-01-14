@@ -205,7 +205,7 @@ Para la creación de los orcos se decidió usar un tono verdoso para la piel, pr
 <img src="./dishonorfactions/src/main/resources/static/readMeMedia/colores humano.png" alt="fondo" width="400"  align="center"/>
 Para los colores de los humanos decidimos basarnos fuertemente en colores metálicos para las armaduras. Además de la inclusión de colores amarillentos para el pelo, propia de muchas clases nobles de la edad media.
 
-Aparte de estos colores utilizados cabe destacar la inclusión de pqueñas referencias al videojuego WoW en la simbología de los campeones orco y humano con los símbolos de la Orda y la Alianza respectivamente.
+- Aparte de estos colores utilizados cabe destacar la inclusión de pqueñas referencias al videojuego WoW en la simbología de los campeones orco y humano con los símbolos de la Orda y la Alianza respectivamente.
 
 ### ESCENARIOS:
 
