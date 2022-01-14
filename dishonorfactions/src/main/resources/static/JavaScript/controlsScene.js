@@ -14,14 +14,12 @@ export class Controls extends Phaser.Scene
 
 	create()
 	{
-		if(this.dataBetweenScenes.gameMode == "Offline")
+		if(this.registry.get("gameMode") == "Offline")
 		{
-			console.log("offline");
 			this.add.image(0, 0, 'offlineControlsBackground').setOrigin(0, 0);
 		}
-		else if (this.dataBetweenScenes.gameMode == "Online")
+		else if (this.registry.get("gameMode") == "Online")
 		{
-			console.log("online");
 			this.add.image(0, 0, 'onlineControlsBackground').setOrigin(0, 0);
 		}
 

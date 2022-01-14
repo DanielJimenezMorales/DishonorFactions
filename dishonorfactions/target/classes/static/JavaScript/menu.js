@@ -32,11 +32,11 @@ export class Menu extends Phaser.Scene
 
 		this.playButton = new Button(this.cameras.main.width / 2, this.cameras.main.height / 2 - 110,
 	    	'Play', 'button', 0.8, 1, 60, 15, this, () => {
-	    		if(this.dataBetweenScenes.gameMode == "Offline")
+	    		if(this.registry.get("gameMode") == "Offline")
 	    		{
 	    			this.switchToSelectionScene(this);
 	    		}
-	    		else if(this.dataBetweenScenes.gameMode == "Online")
+	    		else if(this.registry.get("gameMode") == "Online")
 	    		{
 	    			this.switchToSearchingLobbyScene(this);
 	    		}

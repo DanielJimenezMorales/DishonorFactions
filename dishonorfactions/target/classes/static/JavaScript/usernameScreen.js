@@ -15,7 +15,6 @@ export class UsernameScene extends Phaser.Scene
 		this.dataForMenuScene = 
     	{
     		"username": "",
-    		"gameMode": ''
     	};
 		this.confirmButton;
 		this.playOfflineButton;
@@ -91,7 +90,6 @@ export class UsernameScene extends Phaser.Scene
     playOffline()
     {
     	this.dataForMenuScene.username = "Invitado";
-    	this.dataForMenuScene.gameMode = "Offline";
     	this.registry.set("gameMode", "Offline");
     	this.changeToMenu();
     }

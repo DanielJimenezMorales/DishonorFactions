@@ -42,6 +42,7 @@ export class Player
 		this.canShoot = true;
 		this.projectilesGroup;
 		this.isShooting = false;
+		this.socketIsShooting = false;
 
 		this.isDead = false;
 		this.deadTimer;
@@ -54,10 +55,20 @@ export class Player
 		return this.playerGraphics;
 	}
 
+	getSocketIsShooting()
+	{
+		return this.socketIsShooting;
+	}
+
 	setPosition(x,  y) //for websocket
 	{ 
 		this.playerGraphics.x = x;
 		this.playerGraphics.y = y;
+	}
+
+	getFacingDirection()
+	{
+		return this.facingDirection;
 	}
 
 	setFacingDirection(facing){
@@ -297,7 +308,7 @@ export class Player
 	{
 		this.isHorizontallyMoving = false;
 		this.isVerticallyMoving = false;
-		var socketIsShooting = false;
+		this.socketIsShooting = false;
 
 		if(this.isShooting)
 		{
@@ -308,7 +319,7 @@ export class Player
 				this.canShoot = false;
 				this.shootProjectile();
 				this.resetShootingTimer();
-				socketIsShooting = true;
+				this.socketIsShooting = true;
 			}
 		}
 
@@ -348,7 +359,7 @@ export class Player
         {
         	this.playerGraphics.setVelocityY(0);
         }
-
+        /*
 	    if(this.playerSide == "left" && this.scene.registry.get("gameMode") == "Online")
 	    {
 	    	var playerData = {"type" : "position",
@@ -359,7 +370,7 @@ export class Player
 			};
 
 			this.gameWebSocket.send(JSON.stringify(playerData));	
-	    }
+	    }*/
 		
 	}
 

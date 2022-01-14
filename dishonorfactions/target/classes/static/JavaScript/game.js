@@ -30,6 +30,7 @@ export class Game extends Phaser.Scene
 		this.initialCountdownText;
 		this.initialCountdownSecondsLeft = 5;
 		this.tictacSound;
+		this.gameWebSocket;
 
 		this.backgroundMusic;
 	}
@@ -55,6 +56,7 @@ export class Game extends Phaser.Scene
 			if(data.type == "position")
 			{
 				this.rightPlayer.handleOnlineInputs(data);
+				this.rightEnemySpawner.checkIfOnlineIsSpawning(data.hasEnemySpawned, data.spawningRow);
 			}	
 		}
 
@@ -72,11 +74,11 @@ export class Game extends Phaser.Scene
 	initializeEnemySpawner()
 	{
 		this.leftNPCGroup = this.physics.add.group();
-		this.leftEnemySpawner = new EnemySpawner(1, 180, 400, this.gameConfigurationData.leftPlayer, this, 125, 1, this.leftNPCGroup, 125);
+		this.leftEnemySpawner = new EnemySpawner(1, 180, 400, this.gameConfigurationData.leftPlayer, this, 125, 1, this.leftNPCGroup, 125, "left");
 		this.leftEnemySpawner.create();
 
 		this.rightNPCGroup = this.physics.add.group();
-		this.rightEnemySpawner = new EnemySpawner(1, 1080, 400, this.gameConfigurationData.rightPlayer, this, 125, -1, this.rightNPCGroup, 125);
+		this.rightEnemySpawner = new EnemySpawner(1, 1080, 400, this.gameConfigurationData.rightPlayer, this, 125, -1, this.rightNPCGroup, 125, "right");
 		this.rightEnemySpawner.create();
 	}
 
@@ -103,6 +105,8 @@ export class Game extends Phaser.Scene
 
 	initializeInitialCountdown()
 	{
+		this.initialCountdownSecondsLeft = 5;
+
 		this.initialCountdownText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, 
 			this.initialCountdownSecondsLeft, {fontSize: 100, strokeThickness: 2}).setOrigin(0.5, 0.5);
 
@@ -129,7 +133,10 @@ export class Game extends Phaser.Scene
 						this.queenElizabeth.setVisibility(false);
 
 						this.leftEnemySpawner.startSpawning();
-						this.rightEnemySpawner.startSpawning();
+						if(this.registry.get("gameMode") == "Offline")
+						{
+							this.rightEnemySpawner.startSpawning();
+						}
 						this.startGameTimer();
 
 						this.tictacSound.stop();
@@ -275,12 +282,14 @@ export class Game extends Phaser.Scene
 
 	create()
 	{
+		this.gameHasStarted = false;		
+		this.gameHasAlreadyFinished = false;
+		this.gameSeconds = 0;
+		
 		if(this.registry.get("gameMode") == "Online")
 		{
 			this.configureSocket();
 		}
-
-		this.gameHasAlreadyFinished = false;
 
 		this.input.keyboard.on('keydown_E', this.pauseGame, this);
 
@@ -310,6 +319,36 @@ export class Game extends Phaser.Scene
 		{
 			this.finishGame();
 		}
+
+		if(this.registry.get("gameMode") == "Online")
+		{
+			this.sendUpdateWebSocketInformation();
+		}
+
+		this.leftEnemySpawner.update();
+
+		if(this.registry.get("gameMode") == "Offline")
+		{ 		
+			this.rightEnemySpawner.update();
+		}
+	}
+
+	sendUpdateWebSocketInformation()
+	{
+    	var gameData = {
+    	//Player
+    	"type" : "position",
+		"x" : this.leftPlayer.getPlayerGraphics().x,
+		"y" : this.leftPlayer.getPlayerGraphics().y,
+		"isAttacking" : this.leftPlayer.getSocketIsShooting(),
+		"facingDirection": this.leftPlayer.getFacingDirection(),
+
+		//EnemySpawner
+		"hasEnemySpawned": this.leftEnemySpawner.getIsSpawning(),
+		"spawningRow": this.leftEnemySpawner.getRandomIndex()
+		};
+
+		this.gameWebSocket.send(JSON.stringify(gameData));
 	}
 
 	checkIfGameHasFinished()
@@ -332,7 +371,11 @@ export class Game extends Phaser.Scene
 		//Stop spawning enemies and clear existing ones
 		this.leftEnemySpawner.stopSpawning();
 		this.leftNPCGroup.clear(true, true);
-		this.rightEnemySpawner.stopSpawning();
+
+		if(this.registry.get("gameMode") == "Offline")
+		{
+			this.rightEnemySpawner.stopSpawning();
+		}
 		this.rightNPCGroup.clear(true, true);
 
 		//Stop players movement
@@ -344,13 +387,21 @@ export class Game extends Phaser.Scene
 		if(this.leftTower.getHealth() == 0)
 		{
 			endOfTheGameConfiguration.winningTeam = this.gameConfigurationData.rightPlayer;
+			this.scene.start('endOfTheGame', endOfTheGameConfiguration);
 		}
 		else
 		{
 			endOfTheGameConfiguration.winningTeam = this.gameConfigurationData.leftPlayer;
+			if(this.registry.get("gameMode") == "Online")
+			{
+				this.sendWinnerPetition(endOfTheGameConfiguration);
+			}
+			else if(this.registry.get("gameMode") == "Offline")
+			{
+				this.scene.start('endOfTheGame', endOfTheGameConfiguration);
+			}
 		}
-		
-		this.sendWinnerPetition(endOfTheGameConfiguration);
+
 	}
 
 	sendWinnerPetition(endOfTheGameConfiguration)

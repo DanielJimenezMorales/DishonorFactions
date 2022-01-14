@@ -2,9 +2,10 @@ import { NPC } from './nPC.js';
 
 export class EnemySpawner
 {
-	constructor(rate, x, y, champion, gameScene, rowDisp, spawnDir, group, speed)
+	constructor(rate, x, y, champion, gameScene, rowDisp, spawnDir, group, speed, side)
 	{
 		this.scene = gameScene;
+		this.side = side;
 		this.nPCSpeed = speed;
 		this.spawningRate = rate * 2000;
 		this.spawningPositionX = x;
@@ -15,6 +16,18 @@ export class EnemySpawner
 		this.spawningDirection = spawnDir;
 		this.nPCGroup = group;
 		this.movementAnimationKey;
+		this.randomIndex;
+		this.isSpawning = true;
+	}
+
+	getRandomIndex()
+	{
+		return this.randomIndex;
+	}
+
+	getIsSpawning()
+	{
+		return this.isSpawning;
 	}
 
 	createAnimations()
@@ -65,8 +78,13 @@ export class EnemySpawner
 		}
 		else
 		{
-			console.log("ssjfiohrgpdkpsJAAAAA");
+			console.log("Not valid enemy");
 		}
+	}
+
+	update()
+	{
+		this.isSpawning = false;
 	}
 
 	startSpawning()
@@ -74,8 +92,7 @@ export class EnemySpawner
 		this.timer = this.scene.time.addEvent(
 			{
 				delay: this.spawningRate,
-				callback: this.spawnAnEnemy,
-				args: [this.scene, this.enemySpriteName, this.spawningPositionX, this.posibleSpawnPositionY, this.spawningDirection, this.nPCGroup, this.nPCSpeed, this.movementAnimationKey],
+				callback: ()=> this.spawnAnEnemy(this.scene, this.enemySpriteName, this.spawningPositionX, this.posibleSpawnPositionY, this.spawningDirection, this.nPCGroup, this.nPCSpeed, this.movementAnimationKey),
 				loop: true,
 				startAt: 0,
 				timeScale: 1
@@ -84,9 +101,26 @@ export class EnemySpawner
 
 	spawnAnEnemy(gameScene, enemyName, spawnPositionX, spawnPositionY, dir, group, speed, movementAnimationName)
 	{
-		var randomIndex = Phaser.Math.Between(0, 2);
+		this.isSpawning = true;
+		this.randomIndex = Phaser.Math.Between(0, 2);
 
-		var nPC = gameScene.physics.add.sprite(spawnPositionX, spawnPositionY[randomIndex], enemyName);
+		var nPC = gameScene.physics.add.sprite(spawnPositionX, spawnPositionY[this.randomIndex], enemyName);
+
+		nPC.anims.play(movementAnimationName, true);
+		group.add(nPC);
+		nPC.setVelocityX(dir * speed);
+	}
+
+	checkIfOnlineIsSpawning(isSpawning, randomRow)
+	{
+		if(!isSpawning) return;
+
+		this.spawnEnemy(this.scene, this.enemySpriteName, this.spawningPositionX, this.posibleSpawnPositionY, this.spawningDirection, this.nPCGroup, this.nPCSpeed, this.movementAnimationKey, randomRow)
+	}
+
+	spawnEnemy(gameScene, enemyName, spawnPositionX, spawnPositionY, dir, group, speed, movementAnimationName, randomRow)
+	{
+		var nPC = gameScene.physics.add.sprite(spawnPositionX, spawnPositionY[randomRow], enemyName);
 
 		nPC.anims.play(movementAnimationName, true);
 		group.add(nPC);

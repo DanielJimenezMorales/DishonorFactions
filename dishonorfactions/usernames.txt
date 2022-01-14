@@ -34,3 +34,9 @@ dani
 ;
 si
 si
+;
+no
+no
+;
+rr
+rr

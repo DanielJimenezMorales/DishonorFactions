@@ -46,9 +46,11 @@ export class EndOfTheGameScene extends Phaser.Scene
 				this.scene.start('menu');
 			});
 
-		this.createRankingTexts();
-
-		this.sendGetRankingRowsPetition();
+		if(this.registry.get("gameMode") == "Online")
+		{
+			this.createRankingTexts();
+			this.sendGetRankingRowsPetition();
+		}
 	}
 
 	createRankingTexts()
