@@ -188,7 +188,7 @@ A continuación, se detallarán las características principales de cada una de 
 
 Todas estas tropas son cortesía de la página web opengameart.org
 
-En cuanto a la utilización de los colores utilizados podemos destacar los distintos patrones de colores:
+En cuanto a la elección de los colores utilizados podemos destacar los distintos patrones de colores:
 
 - Elfos:
 
