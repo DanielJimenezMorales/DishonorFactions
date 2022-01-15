@@ -292,3 +292,7 @@ El navegador preferiblemente será Google Chrome.
 Buscar la dirección IP de la máquina que ha levantado el servidor en el puerto 8080.
 
 ¡Jugar!
+
+- Video tutorial de como descargar y ejecutar el servidor:
+
+[![Video de youtube](./dishonorfactions/src/main/resources/static/Art/loginBackground.png)](https://www.youtube.com/watch?v=QYS7m6yYvzA)
