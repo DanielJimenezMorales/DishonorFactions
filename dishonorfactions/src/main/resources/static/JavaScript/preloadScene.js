@@ -17,6 +17,7 @@ export class Preload extends Phaser.Scene
 		this.load.image('pauseBackground','./Art/menuPausa.png');
 		this.load.image('controlsBackground','./Art/controls.png');
 		this.load.image('loginBackground', './Art/loginBackground.png');
+		this.load.image('searchingLobbyBackground', './Art/searchingLobbyBackground.png');
 
 		//Particle effects
 		this.load.atlas('explosion', './Art/Particles/explosion.png', './Art/Particles/explosion.json');

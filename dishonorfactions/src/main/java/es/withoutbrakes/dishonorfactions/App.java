@@ -10,14 +10,15 @@ public class App implements WebSocketConfigurer
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
         SpringApplication.run(App.class, args);
+        
+        ServerTraceCreator serverTraceCreator = ServerTraceCreator.getInstance();
     }
     
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry)
     {
-    	registry.addHandler(gameWebSocketHandler(), "/gameWebSocket").setAllowedOrigins("*");;
+    	registry.addHandler(gameWebSocketHandler(), "/gameWebSocket").setAllowedOrigins("*");
     }
     
     @Bean

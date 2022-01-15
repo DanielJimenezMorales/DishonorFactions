@@ -6,7 +6,6 @@ export class Menu extends Phaser.Scene
 	{
 		super({ key: 'menu' });
 		this.playButton;
-		this.playOnlineButton;
 		this.playButtonShadow;
 		this.creditsButton;
 		this.creditsButtonShadow;
@@ -32,10 +31,16 @@ export class Menu extends Phaser.Scene
 		this.add.image(0, 0, 'menu').setOrigin(0, 0);
 
 		this.playButton = new Button(this.cameras.main.width / 2, this.cameras.main.height / 2 - 110,
-	    	'Play', 'button', 0.8, 1, 60, 15, this, () => {this.switchToSelectionScene(this);});
-
-		this.playOnlineButton = new Button(this.cameras.main.width / 2 + 400, this.cameras.main.height / 2 - 110,
-	    	'Play online', 'button', 0.8, 1, 60, 15, this, () => {this.switchToSearchingLobbyScene(this);});
+	    	'Play', 'button', 0.8, 1, 60, 15, this, () => {
+	    		if(this.dataBetweenScenes.gameMode == "Offline")
+	    		{
+	    			this.switchToSelectionScene(this);
+	    		}
+	    		else if(this.dataBetweenScenes.gameMode == "Online")
+	    		{
+	    			this.switchToSearchingLobbyScene(this);
+	    		}
+	    	});
 
 		this.creditsButton = new Button(this.cameras.main.width / 2, this.cameras.main.height / 2,
 			'Credits', 'button', 0.8, 1, 60, 15, this, () => {this.switchToCreditsScene(this);});
