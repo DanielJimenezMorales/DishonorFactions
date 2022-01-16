@@ -39,17 +39,14 @@ public class GameWebSocketHandler extends TextWebSocketHandler
 	
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception
-	{
-		System.out.println("Meessage received: " + message.getPayload());
-		
+	{		
 		WebSocketSession opponent = getOpponentSession(session);
 		if(opponent == null)
 		{
-			System.out.println("NULOOOOO");
+			System.out.println("ERROR: The opponent is Null");
 		}
 		else
-		{	
-			System.out.println("encontradooo");
+		{
 			opponent.sendMessage(message);
 		}
 	}
@@ -91,11 +88,11 @@ public class GameWebSocketHandler extends TextWebSocketHandler
 			TextMessage message = new TextMessage("PartidaEncontrada");
 			newLobby.getSession1().sendMessage(message);
 			newLobby.getSession2().sendMessage(message);
-			System.out.println("Lobby has succesfully been created");
+			serverTraceCreator.writeTraceMessage("Lobby between " + session1.getId() + " and " + session2.getId() + " has succesfully been created");
 		}
 		else
 		{
-			System.out.println("Lobby has not been created");
+			serverTraceCreator.writeTraceMessage("ERROR: Lobby between " + session1.getId() + " and " + session2.getId() + " has not been created");
 		}
 	}
 }
