@@ -193,8 +193,7 @@ A continuación, se detallarán las características principales de cada una de 
         <img src="./dishonorfactions/src/main/resources/static/readMeMedia/2D_KNIGHT__Run_003.png" alt="Orco" width="400" align="center"/>
 
 Todas estas tropas son cortesía de la página web opengameart.org
-<<<<<<< HEAD
-=======
+
 
 En cuanto a la elección de los colores utilizados podemos destacar los distintos patrones de colores:
 
@@ -214,7 +213,7 @@ Para la creación de los orcos se decidió usar un tono verdoso para la piel, pr
 Para los colores de los humanos decidimos basarnos fuertemente en colores metálicos para las armaduras. Además de la inclusión de colores amarillentos para el pelo, propia de muchas clases nobles de la edad media.
 
 - Aparte de estos colores utilizados cabe destacar la inclusión de pqueñas referencias al videojuego WoW en la simbología de los campeones orco y humano con los símbolos de la Orda y la Alianza respectivamente.
->>>>>>> main
+
 
 ### ESCENARIOS:
 
