@@ -85,7 +85,7 @@ export class Menu extends Phaser.Scene
 	}
 
 	switchToLoginScreen()
-	{
+	{currentScene.backgroundMusic.stop();
 		this.scene.start('username');
 	}
 
