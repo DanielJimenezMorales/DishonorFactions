@@ -12,6 +12,8 @@
 |David    |Rodríguez Rives  |d.rodriguezr.2019@alumnos.urjc.es | https://github.com/miniesda |
 |Fernando |Expósito Arribas |f.exposito.2019@alumnos.urjc.es | https://github.com/fernanditicus |
 
+- Video de nuestro videojuego
+[![Video de youtube](./dishonorfactions/src/main/resources/static/Art/loginBackground.png)](https://youtu.be/KxXN-_agmZQ)
 
 
 ## ÍNDICE:
@@ -297,8 +299,5 @@ Buscar la dirección IP de la máquina que ha levantado el servidor en el puerto
 ¡Jugar!
 
 - Video tutorial de como descargar y ejecutar el servidor:
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 [![Video de youtube](./dishonorfactions/src/main/resources/static/Art/loginBackground.png)](https://www.youtube.com/watch?v=QYS7m6yYvzA)
