@@ -108,7 +108,7 @@ export class Player
 		this.healthBar.create();
 		this.healthBar.scaleBar(0.4, 0.7);
 		
-		this.healthText = this.scene.add.text(this.healthBarPositionX-20, this.healthBarPositionY, this.currentHealth, {fontSize: 20, strokeThickness: 2});
+		this.healthText = this.scene.add.text(this.healthBarPositionX-20, this.healthBarPositionY, this.currentHealth, {fontSize: 20, strokeThickness: 2}).setOrigin(0,0);
 		
 		
 
@@ -433,7 +433,8 @@ export class Player
 	{
 		this.calculateHealthBarPosition();
 	    this.healthBar.setPosition(this.healthBarPositionX, this.healthBarPositionY);
-	    this.healthText.setPosition(this.healthBarPositionX-20, this.healthBarPositionY)
+	    this.healthText.setPosition(this.healthBarPositionX-20,this.healthBarPositionY);
+	    
 	}
 
 	calculateHealthBarPosition()
