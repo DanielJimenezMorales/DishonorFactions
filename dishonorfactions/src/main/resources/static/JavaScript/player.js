@@ -433,6 +433,7 @@ export class Player
 	{
 		this.calculateHealthBarPosition();
 	    this.healthBar.setPosition(this.healthBarPositionX, this.healthBarPositionY);
+	    this.healthText.setPosition()
 	   
 	}
 
@@ -487,7 +488,7 @@ export class Player
 			this.killPlayer();
 		}
 
-		this.healthBar.setValue(this.currentHealth);
+		this.healthBar.setValue(this.healthBarPositionX-20, this.healthBarPositionY);
 	}
 
 	killPlayer()
