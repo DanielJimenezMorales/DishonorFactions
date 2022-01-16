@@ -15,6 +15,9 @@
 - Video de nuestro videojuego
 [![Video de youtube](./dishonorfactions/src/main/resources/static/Art/loginBackground.png)](https://youtu.be/KxXN-_agmZQ)
 
+- Plataformas en la que esta disponible de forma online:
+https://danieljimenezmorales.itch.io/dishonor-factions
+- Utilizando la contraseña: WithoutBrakes
 
 ## ÍNDICE:
 
