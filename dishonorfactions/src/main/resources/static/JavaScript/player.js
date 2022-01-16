@@ -433,8 +433,12 @@ export class Player
 	{
 		this.calculateHealthBarPosition();
 	    this.healthBar.setPosition(this.healthBarPositionX, this.healthBarPositionY);
+<<<<<<< HEAD
 	    this.healthText.setPosition(this.healthBarPositionX-20, this.healthBarPositionY)
 	   
+=======
+		this.healthText.setPosition(this.healthBarPositionX-20, this.healthBarPositionY)
+>>>>>>> main
 	}
 
 	calculateHealthBarPosition()
