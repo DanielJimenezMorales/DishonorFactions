@@ -401,7 +401,6 @@ export class Game extends Phaser.Scene
 				this.scene.start('endOfTheGame', endOfTheGameConfiguration);
 			}
 		}
-
 	}
 
 	sendWinnerPetition(endOfTheGameConfiguration)

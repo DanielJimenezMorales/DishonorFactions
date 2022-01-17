@@ -26,6 +26,8 @@ export class UsernameScene extends Phaser.Scene
 
 	create()
 	{
+		this.registry.set("serverIP", "127.0.0.1:8080");
+
 		this.loginBackground = this.add.image(0, 0, 'loginBackground').setOrigin(0);
 		//Create a few variables like texts and buttons
 		this.nameInput = this.add.dom(this.cameras.main.width / 2, this.cameras.main.height / 2 - 100).createFromCache('usernameInputField');
@@ -91,6 +93,8 @@ export class UsernameScene extends Phaser.Scene
     {
     	this.dataForMenuScene.username = "Invitado";
     	this.registry.set("gameMode", "Offline");
+
+    	console.log(this.registry.get("gameMode"));
     	this.changeToMenu();
     }
 

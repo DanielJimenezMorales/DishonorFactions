@@ -21,7 +21,7 @@ export class SearchingLobbyScene extends Phaser.Scene
 
 	createWebSocket()
 	{
-		this.gameSocket = new WebSocket('ws://127.0.0.1:8080/gameWebSocket');
+		this.gameSocket = new WebSocket('ws://' + this.registry.get("serverIP") + '/gameWebSocket');
 
 		this.gameSocket.onopen = () =>
 		{

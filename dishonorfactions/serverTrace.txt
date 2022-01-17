@@ -1,6 +1,6 @@
 SERVER TRACE:
-[2022/01/16 20:19:52] Usuario conectado: d353fca4-7643-52bb-5639-4cbd2de0c6c6
-[2022/01/16 20:20:09] Usuario conectado: c9789d20-23f1-a41f-4ca6-a4e35a7659a1
-[2022/01/16 20:20:09] Lobby between d353fca4-7643-52bb-5639-4cbd2de0c6c6 and c9789d20-23f1-a41f-4ca6-a4e35a7659a1 has succesfully been created
-[2022/01/16 20:20:25] Usuario desconectado: c9789d20-23f1-a41f-4ca6-a4e35a7659a1
-[2022/01/16 20:20:26] Usuario desconectado: d353fca4-7643-52bb-5639-4cbd2de0c6c6
+[2022/01/17 21:05:44] Usuario conectado: e57c25e3-66ff-d37e-8613-38db4ed18f81
+[2022/01/17 21:06:08] Usuario conectado: ad91b87a-7958-ee8d-7188-e9d859a6dcee
+[2022/01/17 21:06:08] Lobby between e57c25e3-66ff-d37e-8613-38db4ed18f81 and ad91b87a-7958-ee8d-7188-e9d859a6dcee has succesfully been created
+[2022/01/17 21:06:25] Usuario desconectado: ad91b87a-7958-ee8d-7188-e9d859a6dcee
+[2022/01/17 21:06:25] Usuario desconectado: e57c25e3-66ff-d37e-8613-38db4ed18f81

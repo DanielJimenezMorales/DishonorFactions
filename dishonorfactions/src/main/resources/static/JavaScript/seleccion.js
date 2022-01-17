@@ -59,7 +59,7 @@ export class Seleccion extends Phaser.Scene
 		this.isOpponentReady = false;
 		
 		this.clicksCounter = 0;
-		if(this.dataBetweenScenes.gameMode == "Online")
+		if(this.registry.get("gameMode") == "Online")
 		{
 			this.configureSocket();
 		}
@@ -112,7 +112,7 @@ export class Seleccion extends Phaser.Scene
 		//Incrementar contador
 		this.clicksCounter++;
 
-		if(this.dataBetweenScenes.gameMode == "Offline")
+		if(this.registry.get("gameMode") == "Offline")
 		{
 			//Guardar la seleccion en la variable
 			if(this.clicksCounter == 1)
@@ -127,12 +127,11 @@ export class Seleccion extends Phaser.Scene
 			//Comprobar si ya todos los jugadores han elegido counter = 2
 			if(this.clicksCounter == 2)
 			{
-				console.log("ccccccccccccccccc");
 				this.backgroundMusic.stop();
 				this.scene.start('game', this.preGameConfiguration);
 			}
 		}
-		else if(this.dataBetweenScenes.gameMode == "Online")
+		else if(this.registry.get("gameMode") == "Online")
 		{
 			//Comprobar si ya el jugador ha elegido counter = 1
 			if(this.clicksCounter == 1)
