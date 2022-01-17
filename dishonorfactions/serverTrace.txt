@@ -1,6 +1,1 @@
 SERVER TRACE:
-[2022/01/17 21:05:44] Usuario conectado: e57c25e3-66ff-d37e-8613-38db4ed18f81
-[2022/01/17 21:06:08] Usuario conectado: ad91b87a-7958-ee8d-7188-e9d859a6dcee
-[2022/01/17 21:06:08] Lobby between e57c25e3-66ff-d37e-8613-38db4ed18f81 and ad91b87a-7958-ee8d-7188-e9d859a6dcee has succesfully been created
-[2022/01/17 21:06:25] Usuario desconectado: ad91b87a-7958-ee8d-7188-e9d859a6dcee
-[2022/01/17 21:06:25] Usuario desconectado: e57c25e3-66ff-d37e-8613-38db4ed18f81
